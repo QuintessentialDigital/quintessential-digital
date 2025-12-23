@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-GB">
+<html lang="en-GB" class="scroll-smooth">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,9 +7,8 @@
   <title>Quintessential Digital — Digital Advisory</title>
   <meta name="description" content="Quintessential Digital is a senior-led digital advisory helping organisations design trustworthy digital systems, make clearer technology decisions, and adopt AI responsibly." />
   <meta name="robots" content="index,follow" />
-  <meta name="theme-color" content="#070b14" />
+  <meta name="theme-color" content="#f8faff" />
 
-  <!-- Canonical -->
   <link rel="canonical" href="https://www.quintessentialdigital.com/" />
 
   <!-- Open Graph -->
@@ -18,8 +17,10 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.quintessentialdigital.com/" />
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Fonts (match HealthRadar) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css" />
 
@@ -39,123 +40,125 @@
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
 
-  <header class="site-header" role="banner">
-    <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="Quintessential Digital home">
-        <span class="mark" aria-hidden="true"></span>
-        <span class="brand-text">
-          <span class="brand-name">Quintessential Digital</span>
-          <span class="brand-tag">Digital Advisory</span>
-        </span>
+  <!-- Header -->
+  <header class="site-header" id="top">
+    <div class="container nav">
+      <a href="#top" class="logo" aria-label="Quintessential Digital">
+        <span class="logo-icon" aria-hidden="true"></span>
+        <span>Quintessential Digital</span>
       </a>
 
-      <nav class="nav" aria-label="Primary navigation">
+      <nav class="nav-links" aria-label="Primary">
         <a href="#work">What we do</a>
         <a href="#selected-work">Selected work</a>
         <a href="#how">How we work</a>
-        <a class="btn btn-ghost" href="#contact">Contact</a>
+        <a href="#contact">Contact</a>
       </nav>
+
+      <a href="#contact" class="btn btn-primary">Start a conversation</a>
     </div>
   </header>
 
-  <main id="content" class="main" role="main">
-    <span id="top" aria-hidden="true"></span>
-
-    <!-- HERO -->
+  <main id="content">
+    <!-- Hero -->
     <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <p class="kicker">Senior-led digital advisory</p>
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <div class="hero-badge">
+            <span class="badge-dot" aria-hidden="true"></span>
+            Senior-led • Digital Advisory • Limited capacity
+          </div>
+
           <h1>Calm digital advisory for complex systems.</h1>
-          <p class="lede">
-            Quintessential Digital helps organisations design trustworthy digital systems, make clearer technology decisions,
+          <p class="hero-sub">
+            We help organisations design trustworthy digital systems, make clearer technology decisions,
             and adopt AI responsibly — without hype, fragility, or endless pilots.
           </p>
 
-          <div class="hero-ctas">
-            <a class="btn btn-primary" href="#contact">Start a conversation</a>
-            <a class="btn btn-secondary" href="#selected-work">See selected work</a>
+          <div class="hero-cta-row">
+            <a href="#contact" class="btn btn-primary">Start a conversation</a>
+            <a href="#work" class="btn btn-outline">See what we do</a>
           </div>
 
-          <div class="meta-row" role="list" aria-label="Engagement highlights">
-            <div class="meta" role="listitem">
-              <div class="meta-title">Engagement</div>
-              <div class="meta-text">Retainer or advisory</div>
+          <div class="trust-bar" role="list" aria-label="Highlights">
+            <div class="trust-item" role="listitem">
+              <strong>Advisory</strong>
+              <span>Decision clarity & direction</span>
             </div>
-            <div class="meta" role="listitem">
-              <div class="meta-title">Capacity</div>
-              <div class="meta-text">Small number of partners</div>
+            <div class="trust-item" role="listitem">
+              <strong>Governance</strong>
+              <span>AI & data done responsibly</span>
             </div>
-            <div class="meta" role="listitem">
-              <div class="meta-title">Focus</div>
-              <div class="meta-text">Trust, clarity, long-term outcomes</div>
+            <div class="trust-item" role="listitem">
+              <strong>Trust</strong>
+              <span>Reliability as a feature</span>
             </div>
           </div>
         </div>
 
-        <aside class="hero-card" aria-label="At a glance">
-          <div class="card">
-            <h2 class="card-title">At a glance</h2>
-            <ul class="checklist">
-              <li>Digital decision clarity and direction</li>
-              <li>Architecture & governance for sustainability</li>
-              <li>AI & data governance that works in practice</li>
+        <!-- Right: calm “advisory” card stack (not product-y) -->
+        <aside class="hero-right" aria-label="At a glance">
+          <div class="glass-card">
+            <div class="glass-title">At a glance</div>
+            <ul class="glass-list">
+              <li>Digital Advisory & decision support</li>
+              <li>Architecture & operating models</li>
+              <li>AI & data governance (practical)</li>
               <li>Public-interest platforms (selectively)</li>
             </ul>
-            <div class="card-footer" aria-label="Tags">
+            <div class="pill-row" aria-label="Tags">
               <span class="pill">UK-based</span>
               <span class="pill">Regulated environments</span>
               <span class="pill">Mission-driven teams</span>
             </div>
           </div>
-        </aside>
-      </div>
 
-      <div class="container divider-wrap" aria-hidden="true">
-        <div class="divider"></div>
+          <div class="mini-card">
+            <div class="mini-title">Default engagement</div>
+            <div class="mini-value">Retainer or advisory</div>
+            <div class="mini-note">Small number of partners at a time.</div>
+          </div>
+        </aside>
       </div>
     </section>
 
-    <!-- WHAT WE DO -->
-    <section id="work" class="section">
+    <!-- What we do -->
+    <section class="section section-alt" id="work">
       <div class="container">
-        <h2>What we do</h2>
-        <p class="subhead">
+        <h2 class="section-title">What we do</h2>
+        <p class="section-subtitle">
           We help organisations reduce digital complexity and build systems people can trust — especially where failure is costly,
           reputationally risky, or public-facing.
         </p>
 
         <div class="grid-3">
-          <article class="panel">
+          <article class="card">
+            <div class="tag tag-primary">Core</div>
             <h3>Digital Advisory</h3>
-            <p>
-              Senior guidance on direction, priorities, and trade-offs — without over-engineering or noise.
-            </p>
-            <ul class="bullets">
+            <p>Senior guidance on direction, priorities, and trade-offs — without over-engineering or noise.</p>
+            <ul class="list">
               <li>Technology direction & decision support</li>
               <li>Strategy-to-execution alignment</li>
               <li>Pragmatic roadmaps</li>
             </ul>
           </article>
 
-          <article class="panel">
+          <article class="card">
+            <div class="tag tag-accent">Core</div>
             <h3>Architecture & Governance</h3>
-            <p>
-              Practical architecture and governance that supports delivery, compliance, and long-term sustainability.
-            </p>
-            <ul class="bullets">
+            <p>Practical architecture and governance that supports delivery, compliance, and long-term sustainability.</p>
+            <ul class="list">
               <li>Enterprise & solution architecture</li>
               <li>Operating models & controls</li>
               <li>Risk and assurance readiness</li>
             </ul>
           </article>
 
-          <article class="panel">
+          <article class="card">
+            <div class="tag tag-soft">Selective</div>
             <h3>Public-interest Platforms</h3>
-            <p>
-              We occasionally design and operate public-interest digital platforms to test ideas in the real world.
-            </p>
-            <ul class="bullets">
+            <p>We occasionally design and operate public-interest platforms to test ideas in the real world.</p>
+            <ul class="list">
               <li>Access & service-discovery tools</li>
               <li>Lean product stewardship</li>
               <li>Operational sustainability</li>
@@ -165,132 +168,136 @@
       </div>
     </section>
 
-    <!-- SELECTED WORK -->
-    <section id="selected-work" class="section muted">
+    <!-- Selected work -->
+    <section class="section" id="selected-work">
       <div class="container">
-        <h2>Selected work</h2>
-        <p class="subhead">
-          A public-interest example operated by Quintessential Digital:
+        <h2 class="section-title">Selected work</h2>
+        <p class="section-subtitle">
+          A public-interest example operated by Quintessential Digital (proof of operational reality, not a product catalogue).
         </p>
 
-        <div class="proof">
-          <article class="panel proof-panel">
-            <div class="proof-header">
-              <h3>DentistRadar</h3>
-              <span class="pill">Public-interest platform</span>
+        <div class="work-grid">
+          <div class="work-card">
+            <div class="work-head">
+              <div>
+                <div class="work-name">DentistRadar</div>
+                <div class="work-type">Public-interest platform</div>
+              </div>
+              <div class="work-badge">Live</div>
             </div>
+
             <p>
               DentistRadar is a free tool that helps people find NHS dentists by alerting users when availability changes.
+              It was designed, built, and is operated by Quintessential Digital as a real-world example of calm, well-governed digital systems.
             </p>
-            <p>
-              It was designed, built, and is operated by Quintessential Digital as a real-world example of how calm,
-              well-governed digital systems can reduce friction and improve access where existing processes fall short.
-            </p>
-            <p class="note">Independent and not affiliated with the NHS.</p>
-          </article>
 
-          <article class="panel proof-panel">
-            <h3>What this demonstrates</h3>
-            <p>
-              We don’t just advise — we understand operational reality: reliability, user trust, governance, and sustainable delivery.
-            </p>
-            <ul class="bullets">
-              <li>Low-friction experience, high trust</li>
-              <li>Operationally sustainable systems</li>
-              <li>Clear boundaries and responsible design</li>
-            </ul>
-          </article>
+            <p class="work-note">Independent and not affiliated with the NHS.</p>
+
+            <div class="work-actions">
+              <a class="btn btn-primary" href="https://www.dentistradar.co.uk" target="_blank" rel="noopener">Open DentistRadar</a>
+              <a class="btn btn-outline" href="#contact">Discuss an engagement</a>
+            </div>
+          </div>
+
+          <div class="work-side">
+            <div class="side-card">
+              <h3>What this demonstrates</h3>
+              <ul class="list">
+                <li>Reliability and trust under real constraints</li>
+                <li>Governance that enables progress (not bureaucracy)</li>
+                <li>Clarity of decisions and sustainable operations</li>
+              </ul>
+            </div>
+
+            <div class="side-card">
+              <h3>Where we’re strongest</h3>
+              <p>
+                Complex environments where trust matters: regulated industries, high-impact services,
+                and mission-driven teams who need clarity and steady execution.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- HOW WE WORK -->
-    <section id="how" class="section">
+    <!-- How we work -->
+    <section class="section section-alt" id="how">
       <div class="container">
-        <h2>How we work</h2>
-        <p class="subhead">
-          Quintessential Digital works on a retainer or advisory basis with a small number of organisations at any one time.
+        <h2 class="section-title">How we work</h2>
+        <p class="section-subtitle">
+          We work on a retainer or advisory basis with a small number of organisations at any one time.
           Engagements are designed to be sustainable, high-leverage, and led directly by senior practitioners.
         </p>
 
-        <div class="grid-2">
-          <div class="panel">
-            <h3>Boundaries create speed</h3>
-            <p>Clear scope, calm cadence, and decisions you can defend — reducing churn and rework.</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h3>Frame decisions</h3>
+            <p>Clarify outcomes, constraints, trade-offs, and what “good” looks like.</p>
           </div>
-          <div class="panel">
-            <h3>Trust is the feature</h3>
-            <p>Reliability, transparency, and safety are treated as core product requirements, not afterthoughts.</p>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h3>Design the system</h3>
+            <p>Architecture, governance, and operating model that supports delivery.</p>
           </div>
-          <div class="panel">
-            <h3>Designed for real constraints</h3>
-            <p>Time, budget, governance, and people are part of the system — acknowledged upfront.</p>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h3>Guide execution</h3>
+            <p>Pragmatic oversight to reduce churn, risk, and rework.</p>
           </div>
-          <div class="panel">
-            <h3>Depth over volume</h3>
-            <p>Fewer partnerships, better outcomes. Limited availability by design.</p>
+          <div class="step">
+            <div class="step-num">4</div>
+            <h3>Keep it sustainable</h3>
+            <p>Ensure reliability and trust remain durable as conditions change.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section muted">
+    <!-- Contact -->
+    <section class="section" id="contact">
       <div class="container contact">
-        <h2>Contact</h2>
-        <p class="subhead">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">
           If you’re navigating complexity and want senior support with clear boundaries, email us.
         </p>
 
-        <div class="contact-box" role="group" aria-label="Contact details">
-          <div class="contact-item">
-            <div class="label">Email</div>
-            <a class="contact-link" href="mailto:hello@quintessentialdigital.com">hello@quintessentialdigital.com</a>
+        <div class="contact-card">
+          <div class="contact-row">
+            <div>
+              <div class="contact-label">Email</div>
+              <a class="contact-link" href="mailto:hello@quintessentialdigital.com">hello@quintessentialdigital.com</a>
+            </div>
+            <div>
+              <div class="contact-label">Typical engagement</div>
+              <div class="contact-value">Retainer / advisory • limited availability</div>
+            </div>
           </div>
-          <div class="contact-item">
-            <div class="label">Typical engagement</div>
-            <div class="value">Retainer / advisory • limited capacity</div>
+          <div class="contact-foot">
+            © <span id="year"></span> Quintessential Digital.
           </div>
         </div>
-
-        <p class="fineprint">
-          © <span id="year"></span> Quintessential Digital. All rights reserved.
-        </p>
       </div>
     </section>
-  </main>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="container footer-inner">
-      <div class="footer-left">
-        <div class="brand-mini">
-          <span class="mark" aria-hidden="true"></span>
-          <span class="brand-name">Quintessential Digital</span>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="footer-logo">Quintessential Digital</div>
+        <div class="footer-links">
+          <a href="#work">What we do</a>
+          <a href="#selected-work">Selected work</a>
+          <a href="#how">How we work</a>
+          <a href="#contact">Contact</a>
         </div>
         <div class="footer-note">Calm, trustworthy digital systems.</div>
       </div>
-
-      <div class="footer-right" aria-label="Footer navigation">
-        <a href="#work">What we do</a>
-        <a href="#selected-work">Selected work</a>
-        <a href="#how">How we work</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </footer>
+    </footer>
+  </main>
 
   <script>
-    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Header shadow on scroll (subtle)
-    const header = document.querySelector('.site-header');
-    const onScroll = () => {
-      if (window.scrollY > 8) header.classList.add('scrolled');
-      else header.classList.remove('scrolled');
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
   </script>
 </body>
 </html>
