@@ -53,7 +53,7 @@
     .nav-links a{color:var(--gray);}
     .nav-links a:hover{color:var(--primary);}
     .btn{
-      padding:14px 32px;border-radius:999px;font-weight:700;
+      padding:14px 32px;border-radius:999px;font-weight:700;transition:all .3s;
     }
     .btn-primary{
       background:var(--primary);color:white;
@@ -108,9 +108,8 @@
       background:white;padding:40px;border-radius:24px;box-shadow:var(--shadow);text-align:center;
     }
     .artifact-icon{
-      width:80px;height:80px;margin:0 auto 24px;background:var(--primary);border-radius:16px;display:flex;align-items:center;justify-content:center;
+      width:80px;height:80px;margin:0 auto 24px;background:var(--primary);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:40px;color:white;
     }
-    .artifact-icon img{width:50px;height:50px;object-fit:contain;filter:brightness(0) invert(1);}
     .artifact-abbr{
       font-size:18px;font-weight:800;color:var(--primary);margin-bottom:8px;
     }
@@ -121,9 +120,11 @@
       font-size:18px;color:var(--gray);
     }
     .flowchart{
-      max-width:900px;margin:80px auto 0;
+      max-width:900px;margin:80px auto 0;text-align:center;
     }
-    .flowchart img{width:100%;height:auto;border-radius:24px;box-shadow:var(--shadow);}
+    .flow-step{
+      font-size:24px;font-weight:600;padding:24px;background:white;border-radius:16px;box-shadow:var(--shadow);
+    }
     .proof-grid{
       display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;margin-bottom:80px;
     }
@@ -134,7 +135,7 @@
       font-size:20px;font-weight:800;color:var(--primary);margin-bottom:16px;
     }
     .public-product{
-      background:white;padding:48px;border-radius:24px;box-shadow:var(--shadow);text-align:center;
+      background:white;padding:48px;border-radius:24px;box-shadow:var(--shadow);text-align:center;max-width:800px;margin:0 auto;
     }
     .public-product h3{font-size:28px;margin-bottom:16px;}
     .public-note{font-size:18px;color:var(--gray);margin-top:24px;}
@@ -210,20 +211,24 @@
       .nav{padding:0 16px;}
       .logo-text{font-size:22px;}
       .logo-icon{width:36px;height:36px;}
+      .nav-links{gap:20px;flex-wrap:wrap;}
+      .nav{flex-wrap:wrap;padding:10px 16px;height:auto;}
+      header{height:auto;}
     }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
-  <header class="site-header" id="top">
+  <header class="site-header">
     <div class="container nav">
-      <a href="#top" class="logo" aria-label="Quintessential Digital">
+      <a href="/" class="logo" aria-label="Quintessential Digital">
         <div class="logo-icon">QD</div>
         Quintessential Digital
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#proof">Proof</a>
         <a href="#framework">Framework</a>
+        <a href="#products">Products</a>
         <a href="#method">Method</a>
         <a href="#deliverables">Deliverables</a>
         <a href="#engagement">Engagement</a>
@@ -258,52 +263,88 @@
       </div>
     </section>
 
-    <!-- New Executive Artifacts Framework Section -->
     <section class="section section-alt" id="framework">
       <div class="container">
         <h2>Our Core Framework: Executive Artifacts</h2>
         <p class="artifacts-intro">We structure every engagement around these four transparent outputs — delivering practical governance that executives can trust from day one.</p>
         <div class="artifacts-grid">
           <div class="artifact-card">
-            <div class="artifact-icon">
-              <img src="https://miro.medium.com/v2/resize:fit:1400/1*_a8OSVMfNVUuOvtSf8v6iQ.png" alt="Reasoning trace icon">
-            </div>
+            <div class="artifact-icon">💡</div>
             <div class="artifact-abbr">Rec</div>
             <div class="artifact-title">Reasoning Trace</div>
             <p class="artifact-desc">Detailed step-by-step logic, reflections, and self-critique — making complex decisions fully transparent and debuggable.</p>
           </div>
           <div class="artifact-card">
-            <div class="artifact-icon">
-              <img src="https://thumbs.dreamstime.com/b/product-roadmap-project-development-navigation-pathway-flat-icon-apps-websites-188897845.jpg" alt="Plan roadmap icon">
-            </div>
+            <div class="artifact-icon">🗺️</div>
             <div class="artifact-abbr">Plan</div>
             <div class="artifact-title">Explicit Plan</div>
             <p class="artifact-desc">Structured task decomposition and roadmap — ensuring execution is intentional, not chaotic.</p>
           </div>
           <div class="artifact-card">
-            <div class="artifact-icon">
-              <img src="https://media.istockphoto.com/id/1173282510/vector/fence-flat-line-icons-set-wood-fencing-metal-profiled-sheet-wire-mesh-crowd-control.jpg?s=612x612&w=0&k=20&c=0YblLPYzSMVaMJhJ76wEA7exfS6XqypsOpDquY-cK8k=" alt="Guardrails fence icon">
-            </div>
+            <div class="artifact-icon">🚧</div>
             <div class="artifact-abbr">Guardrails</div>
             <div class="artifact-title">Enforced Guardrails</div>
             <p class="artifact-desc">Clear rules and safety constraints — preventing risks while preserving team velocity.</p>
           </div>
           <div class="artifact-card">
-            <div class="artifact-icon">
-              <img src="https://www.shutterstock.com/image-vector/navigation-white-icon-set-design-260nw-2697638971.jpg" alt="Trail breadcrumb icon">
-            </div>
+            <div class="artifact-icon">🗂️</div>
             <div class="artifact-abbr">Trail</div>
             <div class="artifact-title">Audit Trail</div>
             <p class="artifact-desc">Complete logged history of every decision and action — enabling review, accountability, and compliance.</p>
           </div>
         </div>
         <div class="flowchart">
-          <img src="https://miro.medium.com/v2/resize:fit:2000/1*dD5S6NHdxtqwgkIA_fJUfg.png" alt="Flowchart: Plan → Reasoning → Actions bounded by Guardrails → Captured in Trail">
+          <div class="flow-step">Plan → Rec → Actions (within Guardrails) → Trail</div>
         </div>
       </div>
     </section>
 
-    <!-- Your existing sections below (Proof, Method, Deliverables, Engagement, etc.) – keep them unchanged -->
+    <!-- New Products Section with DentistRadar -->
+    <section class="section" id="products">
+      <div class="container">
+        <h2>Our Products</h2>
+        <p class="section-subtitle">Applying our framework in product engineering for real-world impact. Key stakeholders include C-level executives focused on scalable, responsible solutions.</p>
+        <div class="public-product">
+          <h3>DentistRadar</h3>
+          <p>Instant NHS Dentist Alerts: Set your location, we monitor every NHS dentist in England 24/7, and send instant alerts when openings appear. Over 27,000 users trust it for access to care.</p>
+          <a href="https://www.dentistradar.co.uk/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit DentistRadar</a>
+          <p class="public-note">Engineered with our executive artifacts for trustworthy AI-driven monitoring and alerts.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Placeholder for other sections (Proof, Method, Deliverables, Engagement) - assuming they exist as before -->
+    <section class="section" id="proof">
+      <div class="container">
+        <h2>Proof</h2>
+        <p class="section-subtitle">Evidence of our approach in action.</p>
+        <!-- Add content as needed -->
+      </div>
+    </section>
+
+    <section class="section section-alt" id="method">
+      <div class="container">
+        <h2>Method</h2>
+        <p class="section-subtitle">Our proven process.</p>
+        <!-- Add content as needed -->
+      </div>
+    </section>
+
+    <section class="section" id="deliverables">
+      <div class="container">
+        <h2>Deliverables</h2>
+        <p class="section-subtitle">What you get from our engagements.</p>
+        <!-- Add content as needed -->
+      </div>
+    </section>
+
+    <section class="section section-alt" id="engagement">
+      <div class="container">
+        <h2>Engagement</h2>
+        <p class="section-subtitle">How we work together.</p>
+        <!-- Add content as needed -->
+      </div>
+    </section>
 
     <section class="section section-alt" id="contact">
       <div class="container contact">
@@ -318,7 +359,7 @@
           </div>
           <div class="contact-form">
             <p>Or use quick intake (5 questions):</p>
-            <a href="https://tally.so/r/wQdX9X" target="_blank" rel="noopener" class="btn btn-primary btn-large">5-question intake →</a>
+            <a href="https://tally.so/r/wQdX9X" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">5-question intake →</a>
           </div>
         </div>
         <div class="email-template">
