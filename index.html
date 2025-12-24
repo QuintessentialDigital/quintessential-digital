@@ -1,358 +1,48 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quintessential Digital — Trust Architecture & Responsible AI Governance</title>
-  <meta name="description" content="Expert advisory for leaders building defensible, auditable AI systems in regulated environments. Executive artifacts, practical guardrails, and governance from day one." />
-  <meta name="robots" content="index,follow" />
-  <meta name="theme-color" content="#f9fafb" id="themeColorMeta" />
-  <link rel="canonical" href="https://www.quintessentialdigital.com/" />
-  <!-- Open Graph -->
-  <meta property="og:title" content="Quintessential Digital — Trust Architecture • Responsible AI Governance" />
-  <meta property="og:description" content="Defensible decisions. Systems that survive scrutiny. Responsible AI that doesn't become tomorrow's risk." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.quintessentialdigital.com/" />
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' dy='.35em' text-anchor='middle' font-size='80' font-family='sans-serif' fill='%234f46e5'>QD</text></svg>" />
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#f9fafb;--text:#1e293b;--primary:#4f46e5;--primary-light:#6366f1;--accent:#06b6d4;
-      --gray:#475569;--shadow:0 20px 40px rgba(0,0,0,0.08);
-    }
-    *{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
-    .container{max-width:1200px;margin:0 auto;padding:0 32px;}
-    a{text-decoration:none;transition:all .2s;}
-    a:hover{color:var(--primary);}
-    header{
-      position:fixed;top:0;left:0;right:0;z-index:1000;
-      background:var(--bg);backdrop-filter:blur(20px);
-      border-bottom:1px solid rgba(0,0,0,0.05);
-      height:80px;transition:box-shadow .3s;
-    }
-    header.scrolled{box-shadow:var(--shadow);}
-    .nav{
-      display:flex;align-items:center;justify-content:space-between;
-      height:100%;
-    }
-    .logo{
-      font-size:24px;font-weight:900;color:var(--text);display:flex;align-items:center;gap:12px;
-    }
-    .logo-icon{
-      width:40px;height:40px;background:var(--primary);border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:18px;
-    }
-    .nav-links{
-      display:flex;gap:40px;font-weight:600;
-    }
-    .nav-links a{color:var(--gray);}
-    .nav-links a:hover{color:var(--primary);}
-    .nav-cta{
-      padding:10px 24px;font-size:15px;
-    }
-    .btn{
-      padding:14px 32px;border-radius:999px;font-weight:700;transition:all .3s;
-    }
-    .btn-primary{
-      background:var(--primary);color:white;
-    }
-    .btn-primary:hover{background:var(--primary-light);}
-    .btn-outline{
-      border:2px solid var(--primary);color:var(--primary);
-    }
-    .btn-outline:hover{background:var(--primary);color:white;}
-    .btn-large{
-      padding:18px 40px;font-size:20px;
-    }
-    .btn-small{
-      padding:12px 24px;font-size:16px;
-    }
-    .hero{
-      padding:200px 0 160px;text-align:center;
-    }
-    .hero-problem{
-      font-size:28px;font-weight:600;color:var(--gray);max-width:900px;margin:0 auto 32px;
-    }
-    .hero h1{
-      font-size:64px;font-weight:900;line-height:1.1;max-width:1000px;margin:0 auto 48px;
-    }
-    .hero-benefits{
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;max-width:1000px;margin:0 auto 64px;
-    }
-    .benefit{
-      font-size:21px;
-    }
-    .hero-cta-row{
-      display:flex;gap:24px;justify-content:center;margin-bottom:80px;flex-wrap:wrap;
-    }
-    .regulated-badges{
-      display:flex;gap:24px;justify-content:center;flex-wrap:wrap;
-    }
-    .regulated-badges span{
-      background:rgba(79,70,229,0.1);color:var(--primary);padding:12px 24px;border-radius:999px;font-weight:600;
-    }
-    .section{padding:120px 0;}
-    .section-alt{background:#f1f5f9;}
-    h2{
-      font-size:52px;font-weight:900;text-align:center;margin-bottom:32px;
-    }
-    .section-subtitle{
-      font-size:20px;color:var(--gray);max-width:800px;margin:0 auto 60px;text-align:center;
-    }
-    .artifacts-intro{
-      font-size:20px;color:var(--gray);max-width:900px;margin:0 auto 60px;text-align:center;
-    }
-    .artifacts-grid{
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;max-width:1200px;margin:0 auto;
-    }
-    .artifact-card{
-      background:white;padding:40px;border-radius:24px;box-shadow:var(--shadow);text-align:center;
-    }
-    .artifact-icon{
-      width:80px;height:80px;margin:0 auto 24px;background:var(--primary);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:40px;color:white;
-    }
-    .artifact-abbr{
-      font-size:18px;font-weight:800;color:var(--primary);margin-bottom:8px;
-    }
-    .artifact-title{
-      font-size:24px;font-weight:800;margin-bottom:16px;
-    }
-    .artifact-desc{
-      font-size:18px;color:var(--gray);
-    }
-    .flowchart{
-      max-width:900px;margin:80px auto 0;text-align:center;
-    }
-    .flow-step{
-      font-size:24px;font-weight:600;padding:32px;background:white;border-radius:16px;box-shadow:var(--shadow);display:inline-block;
-    }
-    .public-product{
-      background:white;padding:48px;border-radius:24px;box-shadow:var(--shadow);text-align:center;max-width:800px;margin:0 auto;
-    }
-    .public-product h3{font-size:28px;margin-bottom:16px;}
-    .public-note{font-size:18px;color:var(--gray);margin-top:24px;}
-    .cta-bottom{margin-top:60px;text-align:center;}
-    .contact{padding:140px 0;text-align:center;}
-    .contact-email{
-      max-width:600px;margin:0 auto;
-    }
-    .email-large{
-      font-size:32px;font-weight:800;color:var(--primary);
-    }
-    .contact-hint{margin-top:12px;color:var(--gray);}
-    .email-template{
-      background:#f1f5f9;padding:32px;border-radius:16px;margin:80px auto 0;max-width:800px;text-align:left;
-    }
-    .email-title{font-size:20px;font-weight:700;margin-bottom:16px;}
-    pre{background:#e2e8f0;padding:20px;border-radius:12px;font-size:15px;overflow-x:auto;}
-    .contact-foot{
-      margin-top:100px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;font-size:14px;color:var(--gray);
-    }
-    .legal-links a{margin-left:24px;color:var(--gray);}
-    .legal-links a:hover{color:var(--primary);}
-    @media (max-width:1024px){
-      .hero{padding:160px 0 100px;}
-      .hero h1{font-size:48px;}
-      .hero-problem{font-size:24px;}
-      .hero-benefits{grid-template-columns:1fr;}
-      .hero-cta-row{flex-direction:column;align-items:center;}
-      .regulated-badges{flex-direction:column;align-items:center;}
-      .regulated-badges span{margin:8px 0;}
-      .artifacts-grid{grid-template-columns:1fr;}
-    }
-    @media (max-width:640px){
-      .hero{padding:120px 0 80px;}
-      .hero h1{font-size:40px;}
-      .section{padding:80px 0;}
-      h2{font-size:40px;}
-      .nav-links{gap:20px;flex-wrap:wrap;}
-      .nav{flex-wrap:wrap;padding:10px 16px;height:auto;}
-      header{height:auto;}
-      .nav-cta{font-size:14px;padding:8px 16px;}
-    }
-  </style>
-</head>
-<body>
-  <a class="skip-link" href="#content">Skip to content</a>
-  <header class="site-header" id="top">
-    <div class="container nav">
-      <a href="/" class="logo" aria-label="Quintessential Digital">
-        <div class="logo-icon">QD</div>
-        Quintessential Digital
-      </a>
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#framework">Framework</a>
-        <a href="#products">Products</a>
-        <a href="#method">Method</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <a href="#contact" class="btn btn-primary nav-cta">Start conversation</a>
-    </div>
-  </header>
-  <main id="content">
-    <section class="hero">
-      <div class="container">
-        <div class="hero-problem">
-          When trust, governance and AI risk are treated as “phase two”,<br>
-          you pay for it later — in board questions, regulator letters, and expensive rework.
-        </div>
-        <h1>We make trust, controls and responsible AI part of day one — so scale doesn’t become risk.</h1>
-        <div class="hero-benefits">
-          <div class="benefit"><strong>Executive-ready decision trails</strong> that survive scrutiny</div>
-          <div class="benefit"><strong>Practical guardrails</strong> teams can implement without killing velocity</div>
-          <div class="benefit"><strong>Responsible AI governance</strong> that stands up to audit today</div>
-        </div>
-        <div class="hero-cta-row">
-          <a href="#contact" class="btn btn-primary btn-large">Book 30-min discovery call</a>
-        </div>
-        <div class="regulated-badges" aria-label="Common risk themes">
-          <span>Regulated environments</span>
-          <span>High-scrutiny decisions</span>
-          <span>Risk & accountability</span>
-          <span>Operational reliability</span>
-        </div>
-      </div>
-    </section>
+<script>
+  // Decision tree logic
+  const tree = document.querySelector("#decision-tree");
+  if (tree) {
+    const d2 = document.getElementById("d2");
+    const d3 = document.getElementById("d3");
+    const resultBox = document.getElementById("decisionResult");
+    const resultTitle = document.getElementById("resultTitle");
+    const resultSub = document.getElementById("resultSub");
 
-    <section class="section section-alt" id="framework">
-      <div class="container">
-        <h2>Our Core Framework: Executive Artifacts</h2>
-        <p class="artifacts-intro">We structure every engagement around these four transparent outputs — delivering practical governance that executives can trust from day one.</p>
-        <div class="artifacts-grid">
-          <div class="artifact-card">
-            <div class="artifact-icon">💡</div>
-            <div class="artifact-abbr">Rec</div>
-            <div class="artifact-title">Reasoning Trace</div>
-            <p class="artifact-desc">Detailed step-by-step logic, reflections, and self-critique — making complex decisions fully transparent and debuggable.</p>
-          </div>
-          <div class="artifact-card">
-            <div class="artifact-icon">🗺️</div>
-            <div class="artifact-abbr">Plan</div>
-            <div class="artifact-title">Explicit Plan</div>
-            <p class="artifact-desc">Structured task decomposition and roadmap — ensuring execution is intentional, not chaotic.</p>
-          </div>
-          <div class="artifact-card">
-            <div class="artifact-icon">🚧</div>
-            <div class="artifact-abbr">Guardrails</div>
-            <div class="artifact-title">Enforced Guardrails</div>
-            <p class="artifact-desc">Clear rules and safety constraints — preventing risks while preserving team velocity.</p>
-          </div>
-          <div class="artifact-card">
-            <div class="artifact-icon">🗂️</div>
-            <div class="artifact-abbr">Trail</div>
-            <div class="artifact-title">Audit Trail</div>
-            <p class="artifact-desc">Complete logged history of every decision and action — enabling review, accountability, and compliance.</p>
-          </div>
-        </div>
-        <div class="flowchart">
-          <div class="flow-step">Plan → Rec → Actions (within Guardrails) → Trail</div>
-        </div>
-      </div>
-    </section>
+    function show(el){ el && (el.hidden = false); }
+    function hide(el){ el && (el.hidden = true); }
 
-    <section class="section" id="products">
-      <div class="container">
-        <h2>Product Engineering in Action</h2>
-        <p class="section-subtitle">We apply the Executive Artifacts framework to build trustworthy, scalable products.</p>
-        <div class="public-product">
-          <h3>DentistRadar</h3>
-          <p>Instant NHS Dentist Alerts: Monitors every NHS dentist in England 24/7 and sends instant alerts when appointments become available. Trusted by over 27,000 users.</p>
-          <a href="https://www.dentistradar.co.uk/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-small">Visit DentistRadar →</a>
-          <p class="public-note">Built using reasoning traces, explicit plans, enforced guardrails, and full audit trails for reliable, compliant operation.</p>
-        </div>
-      </div>
-    </section>
+    const results = {
+      brief: {
+        title: "Recommended: Decision Brief Sprint (~10 days)",
+        sub: "We turn ambiguity into a defensible recommendation, clear trade-offs, and an executive-ready decision trail with an execution plan."
+      },
+      blueprint: {
+        title: "Recommended: Trust Architecture Blueprint (3–5 weeks)",
+        sub: "We define the target design, guardrails, ownership, and assurance-ready artifacts so delivery scales safely."
+      },
+      aigov: {
+        title: "Recommended: Responsible AI Governance Kit (2–4 weeks)",
+        sub: "We establish use-case gating, controls, ownership, and evidence trails so AI remains explainable and safe to operate."
+      }
+    };
 
-    <section class="section section-alt" id="method">
-      <div class="container">
-        <h2>How We Work</h2>
-        <p class="section-subtitle">A clear, efficient process focused on delivering governance that fits your needs from day one.</p>
-        <div class="timeline">
-          <div class="t-step">
-            <div class="t-num">1</div>
-            <div>
-              <h3>Discovery</h3>
-              <p>Understand your context, risks, and goals.</p>
-            </div>
-          </div>
-          <div class="t-step">
-            <div class="t-num">2</div>
-            <div>
-              <h3>Design Framework</h3>
-              <p>Tailor the Executive Artifacts (Rec, Plan, Guardrails, Trail) to your environment.</p>
-            </div>
-          </div>
-          <div class="t-step">
-            <div class="t-num">3</div>
-            <div>
-              <h3>Implement & Embed</h3>
-              <p>Deploy the framework with your teams and provide guidance for adoption.</p>
-            </div>
-          </div>
-          <div class="t-step">
-            <div class="t-num">4</div>
-            <div>
-              <h3>Review & Refine</h3>
-              <p>Ongoing optimisation as your needs evolve.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    tree.addEventListener("click", (e) => {
+      const btn = e.target.closest("button");
+      if (!btn) return;
 
-    <section class="section" id="contact">
-      <div class="container contact">
-        <h2>Next Step: 30-Minute Discovery Call</h2>
-        <p class="section-subtitle">No sales pitch — just a conversation to understand your situation and explore if we can help.</p>
-        
-        <div class="contact-email">
-          <p>Email directly (fastest response):</p>
-          <a href="mailto:hello@quintessentialdigital.com" class="email-large">hello@quintessentialdigital.com</a>
-          <p class="contact-hint">The more context you provide, the faster we can align.</p>
-        </div>
-        
-        <div class="email-template">
-          <div class="email-title">Recommended email structure</div>
-          <pre>Subject: Advisory — [topic / decision]
-1. Context (2–4 sentences):
-2. Key decision(s) right now:
-3. Main constraints (risk/reg/timeline/budget):
-4. What good looks like:
-5. Key stakeholders / roles:</pre>
-        </div>
-        
-        <div class="contact-foot">
-          <div>© 2025 Quintessential Digital.</div>
-          <div class="legal-links">
-            <a href="/privacy">Privacy</a>
-            <a href="/terms">Terms</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-  <script>
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener("click", e => {
-        const id = a.getAttribute("href");
-        const target = document.querySelector(id);
-        if(!target) return;
-        e.preventDefault();
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
+      const next = btn.getAttribute("data-next");
+      const res = btn.getAttribute("data-result");
+
+      // hide flow cards first (keeps it clean)
+      if (next === "d2") { show(d2); hide(d3); hide(resultBox); }
+      if (next === "d3") { show(d3); hide(d2); hide(resultBox); }
+
+      if (res && results[res]) {
+        hide(d2); hide(d3);
+        resultTitle.textContent = results[res].title;
+        resultSub.textContent = results[res].sub;
+        show(resultBox);
+      }
     });
-    // Header shadow on scroll
-    const header = document.querySelector("header");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 20) header.classList.add("scrolled");
-      else header.classList.remove("scrolled");
-    });
-  </script>
-</body>
-</html>
+  }
+</script>
