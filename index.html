@@ -55,6 +55,7 @@
     .nav-links{display:flex;gap:40px;font-weight:600;}
     .nav-links a{color:var(--gray);}
     .nav-links a:hover{color:var(--primary);font-weight:700;}
+
     .btn{
       padding:14px 32px;border-radius:999px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:10px;white-space:nowrap;line-height:1.1;user-select:none;
     }
@@ -94,15 +95,18 @@
     .proof-card{
       background:var(--surface);padding:40px;border-radius:24px;box-shadow:var(--shadow);
       border:1px solid color-mix(in srgb, var(--text) 6%, transparent);
+      transition:transform .3s ease,box-shadow .3s ease;
     }
+    .proof-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);}
     .proof-industry{font-size:20px;font-weight:800;color:var(--primary);margin-bottom:16px;}
     .proof-card p{color:var(--gray);font-size:17px;}
 
     .public-product{
       background:var(--surface);padding:48px;border-radius:24px;box-shadow:var(--shadow-lg);
       border:1px solid color-mix(in srgb, var(--text) 6%, transparent);
-      text-align:center;max-width:980px;margin:0 auto;
+      text-align:center;max-width:980px;margin:0 auto;transition:transform .3s ease,box-shadow .3s ease;
     }
+    .public-product:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);}
     .public-product h3{font-size:28px;margin-bottom:16px;}
     .public-product p{color:var(--gray);font-size:18px;}
     .public-product a{color:var(--primary);font-weight:800;}
@@ -115,21 +119,14 @@
     .how-dot{width:10px;height:10px;border-radius:50%;background:var(--primary);margin-top:10px;flex-shrink:0;}
     .how-list strong{color:var(--text);}
 
-    .decision-tree-img{
-      max-width:100%;height:auto;border-radius:24px;box-shadow:var(--shadow-lg);
-      border:1px solid color-mix(in srgb, var(--text) 6%, transparent);
-    }
-
     .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:36px;}
     .card{
       background:var(--surface);padding:40px;border-radius:24px;box-shadow:var(--shadow);
       border:1px solid color-mix(in srgb, var(--text) 6%, transparent);
+      transition:transform .3s ease,box-shadow .3s ease;
     }
-    .card h3{font-size:24px;font-weight:900;margin:10px 0 10px;letter-spacing:-0.01em;}
-    .card p{color:var(--gray);font-size:18px;}
-    .tag{
-      display:inline-block;padding:8px 16px;border-radius:999px;font-weight:700;font-size:14px;margin-bottom:16px;
-    }
+    .card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);}
+    .tag{display:inline-block;padding:8px 16px;border-radius:999px;font-weight:700;font-size:14px;margin-bottom:16px;}
     .tag-primary{background:var(--primary);color:white;}
     .tag-accent{background:var(--accent);color:white;}
     .tag-soft{background:color-mix(in srgb, var(--primary) 14%, var(--surface));color:var(--primary);}
@@ -139,7 +136,9 @@
       padding:40px;border-radius:24px;margin-top:60px;text-align:center;
       border:1px solid color-mix(in srgb, var(--accent) 22%, transparent);
       box-shadow:var(--shadow);
+      transition:transform .3s ease,box-shadow .3s ease;
     }
+    .callout:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);}
     .callout-title{font-size:24px;font-weight:900;margin-bottom:12px;}
     .callout-text{font-size:20px;color:var(--gray);}
 
@@ -151,6 +150,7 @@
     .contact-form p{margin-bottom:16px;}
     .email-large{font-size:32px;font-weight:900;color:var(--primary);}
     .contact-hint{margin-top:12px;color:var(--gray);}
+
     .email-template{
       background:color-mix(in srgb, var(--soft) 75%, var(--surface));
       padding:32px;border-radius:16px;margin:80px auto 0;max-width:860px;text-align:left;
@@ -223,20 +223,20 @@
     <section class="hero">
       <div class="container">
         <div class="hero-problem">
-          When trust, controls and AI accountability are treated as “phase two”,<br>
-          teams move fast early — then lose time later in rework, risk reviews, and delivery friction.
+          When trust, governance and AI risk are treated as “phase two”,<br>
+          you pay for it later — in board questions, regulator letters, and expensive rework.
         </div>
-        <h1>We make trust and responsible AI part of day one — so scale stays safe.</h1>
+        <h1>We make trust and responsible AI part of day one — so scale doesn’t become risk.</h1>
         <div class="hero-benefits">
-          <div class="benefit"><strong>Executive-ready decision trails</strong> you can stand behind</div>
+          <div class="benefit"><strong>Executive-ready decision trails</strong> that survive scrutiny</div>
           <div class="benefit"><strong>Practical guardrails</strong> teams can implement without killing velocity</div>
-          <div class="benefit"><strong>Responsible AI governance</strong> with clear ownership and evidence</div>
+          <div class="benefit"><strong>Responsible AI governance</strong> that stands up to audit today</div>
         </div>
         <div class="hero-cta-row">
-          <a href="#contact" class="btn btn-primary btn-large">Book 30-min discovery</a>
+          <a href="#contact" class="btn btn-primary btn-large">Book 30-min discovery call</a>
           <a href="#proof" class="btn btn-outline btn-large">See patterns we solve</a>
         </div>
-        <div class="regulated-badges">
+        <div class="regulated-badges" aria-label="Common risk themes">
           <span>Regulated environments</span>
           <span>High-scrutiny decisions</span>
           <span>Risk & accountability</span>
@@ -252,24 +252,36 @@
       <div class="container">
         <h2>Where we’re most useful</h2>
         <p class="section-subtitle">
-          Patterns we support when the cost of getting it wrong is high — especially where scrutiny, risk and delivery pressure collide.
+          Patterns of work we are repeatedly asked to support — especially when the cost of getting it wrong is high.
         </p>
         <div class="proof-grid">
           <div class="proof-card">
             <div class="proof-industry">Decision ambiguity</div>
-            <p>Move from competing opinions and partial information to a clear recommendation with explicit trade-offs.</p>
+            <p>
+              Helping leaders move from competing opinions and incomplete information
+              to a clear, defensible decision with explicit trade-offs.
+            </p>
           </div>
           <div class="proof-card">
-            <div class="proof-industry">Controls added too late</div>
-            <p>Strengthen programmes where governance and assurance were bolted on after delivery — creating risk, delay, or rework.</p>
+            <div class="proof-industry">Trust & controls added too late</div>
+            <p>
+              Strengthening programmes where governance, controls, or assurance were
+              bolted on after delivery — creating risk, delay, or rework.
+            </p>
           </div>
           <div class="proof-card">
             <div class="proof-industry">AI without accountability</div>
-            <p>Make ownership, explainability and evidence trails explicit so AI can be approved, operated and defended.</p>
+            <p>
+              Enabling practical AI adoption where ownership, explainability,
+              and decision accountability must be explicit.
+            </p>
           </div>
           <div class="proof-card">
             <div class="proof-industry">Complex legacy environments</div>
-            <p>Create clarity and guardrails in inherited estates with accumulated technical risk and undocumented decisions.</p>
+            <p>
+              Creating clarity and guardrails in environments with inherited systems,
+              undocumented decisions, and accumulated technical risk.
+            </p>
           </div>
         </div>
 
@@ -311,20 +323,7 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <h2>Choose the right starting point</h2>
-        <p class="section-subtitle">
-          A simple decision tree to get to the right engagement quickly — without over-scoping.
-        </p>
-        <img src="decision-tree.png" alt="Decision tree: Start with high-stakes decision? → Yes: Decision Brief Sprint. No: Scale & guardrails needed? → Yes: Trust Architecture Blueprint. No: Mainly AI risk? → Responsible AI Governance Kit." class="decision-tree-img" loading="lazy">
-        <p class="section-subtitle" style="margin-top:40px;">
-          Not sure? Email or book a 30-min discovery — we’ll tell you honestly if we can help.
-        </p>
-      </div>
-    </section>
-
-    <section class="section section-alt" id="deliverables">
+    <section class="section" id="deliverables">
       <div class="container">
         <h2>Typical engagements</h2>
         <p class="section-subtitle">Designed to create reusable artifacts — not just advice.</p>
@@ -362,11 +361,6 @@
             <a href="mailto:hello@quintessentialdigital.com" class="email-large">hello@quintessentialdigital.com</a>
             <p class="contact-hint">Clear context → faster alignment</p>
           </div>
-          <div class="contact-form">
-            <p>Or use quick intake (5 questions):</p>
-            <a href="https://tally.so/r/wQdX9X" target="_blank" rel="noopener" class="btn btn-primary btn-large">5-question intake →</a>
-            <p class="contact-hint" style="margin-top:14px;">Share the decision, constraints, and what “good” looks like.</p>
-          </div>
         </div>
         <div class="email-template">
           <div class="email-title">Recommended email structure</div>
@@ -378,7 +372,7 @@
 5. Key stakeholders / roles:</pre>
         </div>
         <div class="contact-foot">
-          <div>© <span id="year"></span> Quintessential Digital.</div>
+          <div>© 2025 Quintessential Digital.</div>
           <div class="legal-links">
             <a href="/privacy">Privacy</a>
             <a href="/terms">Terms</a>
@@ -395,7 +389,6 @@
   </button>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
     const root = document.documentElement;
     const key = "qd_theme";
     const themeColorMeta = document.getElementById("themeColorMeta");
