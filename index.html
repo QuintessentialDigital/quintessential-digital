@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quintessential Digital — Trust Architecture & Responsible AI Governance</title>
-  <meta name="description" content="Expert advisory for C-level leaders building defensible, auditable AI systems in regulated environments. Executive artifacts, practical guardrails, and governance from day one." />
+  <meta name="description" content="Expert advisory for leaders building defensible, auditable AI systems in regulated environments. Executive artifacts, practical guardrails, and governance from day one." />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#f9fafb" id="themeColorMeta" />
   <link rel="canonical" href="https://www.quintessentialdigital.com/" />
   <!-- Open Graph -->
   <meta property="og:title" content="Quintessential Digital — Trust Architecture • Responsible AI Governance" />
-  <meta property="og:description" content="Defensible decisions for C-suite executives. Systems that survive scrutiny. Responsible AI that scales without risk." />
+  <meta property="og:description" content="Defensible decisions. Systems that survive scrutiny. Responsible AI that doesn't become tomorrow's risk." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.quintessentialdigital.com/" />
   <!-- Favicon -->
@@ -52,6 +52,9 @@
     }
     .nav-links a{color:var(--gray);}
     .nav-links a:hover{color:var(--primary);}
+    .nav-cta{
+      padding:10px 24px;font-size:15px;
+    }
     .btn{
       padding:14px 32px;border-radius:999px;font-weight:700;transition:all .3s;
     }
@@ -65,6 +68,9 @@
     .btn-outline:hover{background:var(--primary);color:white;}
     .btn-large{
       padding:18px 40px;font-size:20px;
+    }
+    .btn-small{
+      padding:12px 24px;font-size:16px;
     }
     .hero{
       padding:200px 0 160px;text-align:center;
@@ -123,58 +129,18 @@
       max-width:900px;margin:80px auto 0;text-align:center;
     }
     .flow-step{
-      font-size:24px;font-weight:600;padding:24px;background:white;border-radius:16px;box-shadow:var(--shadow);
-    }
-    .proof-grid{
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;margin-bottom:80px;
-    }
-    .proof-card{
-      background:white;padding:40px;border-radius:24px;box-shadow:var(--shadow);
-    }
-    .proof-industry{
-      font-size:20px;font-weight:800;color:var(--primary);margin-bottom:16px;
+      font-size:24px;font-weight:600;padding:32px;background:white;border-radius:16px;box-shadow:var(--shadow);display:inline-block;
     }
     .public-product{
       background:white;padding:48px;border-radius:24px;box-shadow:var(--shadow);text-align:center;max-width:800px;margin:0 auto;
     }
     .public-product h3{font-size:28px;margin-bottom:16px;}
     .public-note{font-size:18px;color:var(--gray);margin-top:24px;}
-    .timeline{
-      display:grid;gap:32px;max-width:900px;margin:0 auto;
-    }
-    .t-step{
-      display:flex;gap:24px;align-items:start;
-    }
-    .t-num{
-      width:56px;height:56px;background:var(--primary);color:white;
-      border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;flex-shrink:0;
-    }
-    .grid-3{
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:36px;
-    }
-    .card{
-      background:white;padding:40px;border-radius:24px;box-shadow:var(--shadow);
-    }
-    .tag{
-      display:inline-block;padding:8px 16px;border-radius:999px;font-weight:700;font-size:14px;margin-bottom:16px;
-    }
-    .tag-primary{background:var(--primary);color:white;}
-    .tag-accent{background:var(--accent);color:white;}
-    .tag-soft{background:#e0e7ff;color:var(--primary);}
-    .callout{
-      background:#f0f9ff;padding:40px;border-radius:24px;margin-top:60px;text-align:center;
-    }
-    .callout-title{font-size:24px;font-weight:800;margin-bottom:12px;}
-    .callout-text{font-size:20px;color:var(--gray);}
+    .cta-bottom{margin-top:60px;text-align:center;}
     .contact{padding:140px 0;text-align:center;}
-    .contact-grid{
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;max-width:800px;margin:60px auto 0;
-      align-items:start;
+    .contact-email{
+      max-width:600px;margin:0 auto;
     }
-    .contact-email, .contact-form{
-      display:flex;flex-direction:column;justify-content:start;
-    }
-    .contact-form p{margin-bottom:16px;}
     .email-large{
       font-size:32px;font-weight:800;color:var(--primary);
     }
@@ -189,7 +155,6 @@
     }
     .legal-links a{margin-left:24px;color:var(--gray);}
     .legal-links a:hover{color:var(--primary);}
-    .cta-bottom{margin-top:60px;text-align:center;}
     @media (max-width:1024px){
       .hero{padding:160px 0 100px;}
       .hero h1{font-size:48px;}
@@ -198,10 +163,6 @@
       .hero-cta-row{flex-direction:column;align-items:center;}
       .regulated-badges{flex-direction:column;align-items:center;}
       .regulated-badges span{margin:8px 0;}
-      .proof-grid{grid-template-columns:1fr;}
-      .timeline{grid-template-columns:1fr;}
-      .grid-3{grid-template-columns:1fr;}
-      .contact-grid{grid-template-columns:1fr;}
       .artifacts-grid{grid-template-columns:1fr;}
     }
     @media (max-width:640px){
@@ -209,12 +170,10 @@
       .hero h1{font-size:40px;}
       .section{padding:80px 0;}
       h2{font-size:40px;}
-      .nav{padding:0 16px;}
-      .logo-text{font-size:22px;}
-      .logo-icon{width:36px;height:36px;}
       .nav-links{gap:20px;flex-wrap:wrap;}
       .nav{flex-wrap:wrap;padding:10px 16px;height:auto;}
       header{height:auto;}
+      .nav-cta{font-size:14px;padding:8px 16px;}
     }
   </style>
 </head>
@@ -227,15 +186,12 @@
         Quintessential Digital
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#proof">Proof</a>
         <a href="#framework">Framework</a>
         <a href="#products">Products</a>
         <a href="#method">Method</a>
-        <a href="#deliverables">Deliverables</a>
-        <a href="#engagement">Engagement</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a href="#contact" class="btn btn-primary">Start conversation</a>
+      <a href="#contact" class="btn btn-primary nav-cta">Start conversation</a>
     </div>
   </header>
   <main id="content">
@@ -253,7 +209,6 @@
         </div>
         <div class="hero-cta-row">
           <a href="#contact" class="btn btn-primary btn-large">Book 30-min discovery call</a>
-          <a href="#proof" class="btn btn-outline btn-large">See patterns we solve</a>
         </div>
         <div class="regulated-badges" aria-label="Common risk themes">
           <span>Regulated environments</span>
@@ -267,220 +222,100 @@
     <section class="section section-alt" id="framework">
       <div class="container">
         <h2>Our Core Framework: Executive Artifacts</h2>
-        <p class="artifacts-intro">We structure every engagement around these four transparent outputs — delivering practical governance that C-level executives can trust from day one.</p>
+        <p class="artifacts-intro">We structure every engagement around these four transparent outputs — delivering practical governance that executives can trust from day one.</p>
         <div class="artifacts-grid">
           <div class="artifact-card">
             <div class="artifact-icon">💡</div>
             <div class="artifact-abbr">Rec</div>
             <div class="artifact-title">Reasoning Trace</div>
-            <p class="artifact-desc">Detailed step-by-step logic, reflections, and self-critique — making complex decisions fully transparent and debuggable for board-level review.</p>
+            <p class="artifact-desc">Detailed step-by-step logic, reflections, and self-critique — making complex decisions fully transparent and debuggable.</p>
           </div>
           <div class="artifact-card">
             <div class="artifact-icon">🗺️</div>
             <div class="artifact-abbr">Plan</div>
             <div class="artifact-title">Explicit Plan</div>
-            <p class="artifact-desc">Structured task decomposition and roadmap — ensuring execution is intentional, scalable, and aligned with strategic goals.</p>
+            <p class="artifact-desc">Structured task decomposition and roadmap — ensuring execution is intentional, not chaotic.</p>
           </div>
           <div class="artifact-card">
             <div class="artifact-icon">🚧</div>
             <div class="artifact-abbr">Guardrails</div>
             <div class="artifact-title">Enforced Guardrails</div>
-            <p class="artifact-desc">Clear rules and safety constraints — preventing risks like bias or compliance issues while preserving team velocity.</p>
+            <p class="artifact-desc">Clear rules and safety constraints — preventing risks while preserving team velocity.</p>
           </div>
           <div class="artifact-card">
             <div class="artifact-icon">🗂️</div>
             <div class="artifact-abbr">Trail</div>
             <div class="artifact-title">Audit Trail</div>
-            <p class="artifact-desc">Complete logged history of every decision and action — enabling effortless audits, accountability, and regulatory compliance.</p>
+            <p class="artifact-desc">Complete logged history of every decision and action — enabling review, accountability, and compliance.</p>
           </div>
         </div>
         <div class="flowchart">
           <div class="flow-step">Plan → Rec → Actions (within Guardrails) → Trail</div>
-        </div>
-        <div class="cta-bottom">
-          <a href="#contact" class="btn btn-primary btn-large">Discuss how this framework fits your needs</a>
         </div>
       </div>
     </section>
 
     <section class="section" id="products">
       <div class="container">
-        <h2>Our Products: Engineering Trust in Action</h2>
-        <p class="section-subtitle">We apply our framework in real-world product engineering, delivering reliable AI solutions for high-stakes environments. Key stakeholders: C-level executives seeking scalable, defensible tech.</p>
+        <h2>Product Engineering in Action</h2>
+        <p class="section-subtitle">We apply the Executive Artifacts framework to build trustworthy, scalable products.</p>
         <div class="public-product">
           <h3>DentistRadar</h3>
-          <p>Instant NHS Dentist Alerts: Set your location, we monitor every NHS dentist in England 24/7, and send instant alerts when openings appear. Over 27,000 users trust it for access to care.</p>
-          <a href="https://www.dentistradar.co.uk/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit DentistRadar</a>
-          <p class="public-note">Built with executive artifacts: Full reasoning traces for AI monitoring, enforced guardrails for data privacy, and audit trails for compliance — ensuring trustworthy operations at scale.</p>
-        </div>
-        <div class="cta-bottom">
-          <a href="#contact" class="btn btn-primary btn-large">Explore custom product engineering</a>
+          <p>Instant NHS Dentist Alerts: Monitors every NHS dentist in England 24/7 and sends instant alerts when appointments become available. Trusted by over 27,000 users.</p>
+          <a href="https://www.dentistradar.co.uk/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-small">Visit DentistRadar →</a>
+          <p class="public-note">Built using reasoning traces, explicit plans, enforced guardrails, and full audit trails for reliable, compliant operation.</p>
         </div>
       </div>
     </section>
 
-    <section class="section section-alt" id="proof">
+    <section class="section section-alt" id="method">
       <div class="container">
-        <h2>Proof: Patterns We Solve in Regulated Industries</h2>
-        <p class="section-subtitle">Drawing from deep expertise in high-scrutiny sectors, we address common AI governance challenges faced by C-suite leaders. Here's how our approach delivers results.</p>
-        <div class="proof-grid">
-          <div class="proof-card">
-            <div class="proof-industry">Financial Services</div>
-            <p><strong>Challenge:</strong> Third-party AI tools exposing risks like bias in lending decisions, leading to 55% failure rates.</p>
-            <p><strong>Our Impact:</strong> Implemented guardrails and audit trails, reducing compliance rework by 40% and accelerating deployment.</p>
-          </div>
-          <div class="proof-card">
-            <div class="proof-industry">Healthcare</div>
-            <p><strong>Challenge:</strong> GenAI in patient data handling lacking transparency, risking HIPAA violations.</p>
-            <p><strong>Our Impact:</strong> Delivered reasoning traces and plans, cutting audit preparation time by 50% while ensuring ethical AI use.</p>
-          </div>
-          <div class="proof-card">
-            <div class="proof-industry">Government</div>
-            <p><strong>Challenge:</strong> High-stakes decisions without defensible trails, inviting regulatory scrutiny.</p>
-            <p><strong>Our Impact:</strong> Built full artifact frameworks, enabling 100% audit readiness and faster innovation cycles.</p>
-          </div>
-          <div class="proof-card">
-            <div class="proof-industry">Insurance</div>
-            <p><strong>Challenge:</strong> Scaling AI without governance, resulting in ethical lapses and trust erosion.</p>
-            <p><strong>Our Impact:</strong> Enforced practical guardrails, boosting stakeholder confidence and reducing risk exposure by 60%.</p>
-          </div>
-        </div>
-        <div class="callout">
-          <div class="callout-title">Ready to see proof in your context?</div>
-          <div class="callout-text">C-level leaders: Schedule a tailored demo of how we solve your specific patterns.</div>
-        </div>
-        <div class="cta-bottom">
-          <a href="#contact" class="btn btn-primary btn-large">Get your personalized proof</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="method">
-      <div class="container">
-        <h2>Our Method: Structured Path to Trustworthy AI</h2>
-        <p class="section-subtitle">A proven, efficient process designed for busy C-suite executives — minimizing disruption while maximizing governance ROI.</p>
+        <h2>How We Work</h2>
+        <p class="section-subtitle">A clear, efficient process focused on delivering governance that fits your needs from day one.</p>
         <div class="timeline">
           <div class="t-step">
             <div class="t-num">1</div>
             <div>
-              <h3>Discovery & Assessment (Week 1)</h3>
-              <p>Map your AI risks, current systems, and goals. Identify quick wins for immediate value.</p>
+              <h3>Discovery</h3>
+              <p>Understand your context, risks, and goals.</p>
             </div>
           </div>
           <div class="t-step">
             <div class="t-num">2</div>
             <div>
-              <h3>Framework Customization (Weeks 2-3)</h3>
-              <p>Tailor Executive Artifacts to your environment — plans, guardrails, traces, and trails aligned with regulations.</p>
+              <h3>Design Framework</h3>
+              <p>Tailor the Executive Artifacts (Rec, Plan, Guardrails, Trail) to your environment.</p>
             </div>
           </div>
           <div class="t-step">
             <div class="t-num">3</div>
             <div>
-              <h3>Implementation & Training (Weeks 4-6)</h3>
-              <p>Roll out tools and processes with your teams. Hands-on support for seamless adoption.</p>
+              <h3>Implement & Embed</h3>
+              <p>Deploy the framework with your teams and provide guidance for adoption.</p>
             </div>
           </div>
           <div class="t-step">
             <div class="t-num">4</div>
             <div>
-              <h3>Audit & Optimization (Ongoing)</h3>
-              <p>Review trails, refine guardrails, and scale — ensuring long-term compliance and efficiency.</p>
+              <h3>Review & Refine</h3>
+              <p>Ongoing optimisation as your needs evolve.</p>
             </div>
           </div>
         </div>
-        <div class="cta-bottom">
-          <a href="#contact" class="btn btn-primary btn-large">Start your method walkthrough</a>
-        </div>
       </div>
     </section>
 
-    <section class="section section-alt" id="deliverables">
-      <div class="container">
-        <h2>Deliverables: Tangible Outputs for Immediate Impact</h2>
-        <p class="section-subtitle">What C-level stakeholders get: Actionable assets that drive decisions, reduce risks, and prove ROI.</p>
-        <div class="grid-3">
-          <div class="card">
-            <span class="tag tag-primary">Core Framework</span>
-            <h3>Customized Executive Artifacts</h3>
-            <p>Ready-to-deploy Rec, Plan, Guardrails, and Trail templates tailored to your AI initiatives.</p>
-          </div>
-          <div class="card">
-            <span class="tag tag-accent">Risk Management</span>
-            <h3>AI Governance Playbook</h3>
-            <p>Comprehensive guide with policies, checklists, and tools to enforce ethical AI at scale.</p>
-          </div>
-          <div class="card">
-            <span class="tag tag-soft">Audit-Ready</span>
-            <h3>Decision Trail Reports</h3>
-            <p>Executive summaries and logs that withstand board and regulatory scrutiny.</p>
-          </div>
-          <div class="card">
-            <span class="tag tag-primary">Training</span>
-            <h3>Team Workshops & Resources</h3>
-            <p>Hands-on sessions and materials to embed responsible AI culture.</p>
-          </div>
-          <div class="card">
-            <span class="tag tag-accent">Ongoing Support</span>
-            <h3>Optimization Roadmap</h3>
-            <p>6-12 month plan for continuous improvement and emerging risk mitigation.</p>
-          </div>
-        </div>
-        <div class="cta-bottom">
-          <a href="#contact" class="btn btn-primary btn-large">Review sample deliverables</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="engagement">
-      <div class="container">
-        <h2>Engagement: Flexible Models for C-Suite Needs</h2>
-        <p class="section-subtitle">We partner with CEOs, CTOs, CISOs, and compliance leaders on terms that fit your timeline and budget — focused on rapid value.</p>
-        <div class="grid-3">
-          <div class="card">
-            <span class="tag tag-primary">Quick Start</span>
-            <h3>Advisory Sprint (4-6 Weeks)</h3>
-            <p>Fast-track assessment and framework setup for immediate governance wins.</p>
-            <p><strong>Ideal for:</strong> Urgent regulatory prep or pilot projects.</p>
-          </div>
-          <div class="card">
-            <span class="tag tag-accent">Deep Dive</span>
-            <h3>Full Transformation (3-6 Months)</h3>
-            <p>End-to-end implementation, training, and optimization across your AI stack.</p>
-            <p><strong>Ideal for:</strong> Enterprise-wide responsible AI rollout.</p>
-          </div>
-          <div class="card">
-            <span class="tag tag-soft">Ongoing</span>
-            <h3>Retainer Support</h3>
-            <p>Monthly advisory for evolving risks, audits, and framework updates.</p>
-            <p><strong>Ideal for:</strong> Long-term partnership in dynamic environments.</p>
-          </div>
-        </div>
-        <div class="callout">
-          <div class="callout-title">No commitment until alignment</div>
-          <div class="callout-text">Start with a free 30-min discovery call — we'll map your needs and propose the best fit.</div>
-        </div>
-        <div class="cta-bottom">
-          <a href="#contact" class="btn btn-primary btn-large">Choose your engagement model</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-alt" id="contact">
+    <section class="section" id="contact">
       <div class="container contact">
         <h2>Next Step: 30-Minute Discovery Call</h2>
-        <p class="section-subtitle">No sales pitch. Just understanding your situation and whether we can help. Tailored for C-level executives.</p>
-        <div class="contact-grid">
-          <div class="contact-email">
-            <p>Email directly (fastest):</p>
-            <a href="mailto:hello@quintessentialdigital.com" class="email-large">hello@quintessentialdigital.com</a>
-            <p class="contact-hint">Clear context → faster alignment</p>
-          </div>
-          <div class="contact-form">
-            <p>Or use quick intake (5 questions):</p>
-            <a href="https://tally.so/r/wQdX9X" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">5-question intake →</a>
-          </div>
+        <p class="section-subtitle">No sales pitch — just a conversation to understand your situation and explore if we can help.</p>
+        
+        <div class="contact-email">
+          <p>Email directly (fastest response):</p>
+          <a href="mailto:hello@quintessentialdigital.com" class="email-large">hello@quintessentialdigital.com</a>
+          <p class="contact-hint">The more context you provide, the faster we can align.</p>
         </div>
+        
         <div class="email-template">
           <div class="email-title">Recommended email structure</div>
           <pre>Subject: Advisory — [topic / decision]
@@ -490,6 +325,7 @@
 4. What good looks like:
 5. Key stakeholders / roles:</pre>
         </div>
+        
         <div class="contact-foot">
           <div>© 2025 Quintessential Digital.</div>
           <div class="legal-links">
