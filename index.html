@@ -21,9 +21,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-  <!-- Preload key hero image (real photo) -->
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2400&q=60" />
-
   <style>
     :root{
       --bg:#f9fafb;
@@ -82,24 +79,23 @@
     .page-bg{
       position:fixed;inset:0;z-index:-2;pointer-events:none;
       background:
-        radial-gradient(42% 42% at 15% 10%, color-mix(in srgb, var(--primary) 22%, transparent) 0%, transparent 56%),
-        radial-gradient(42% 42% at 82% 18%, color-mix(in srgb, var(--accent) 18%, transparent) 0%, transparent 56%),
-        radial-gradient(46% 46% at 55% 88%, color-mix(in srgb, var(--accent-2) 14%, transparent) 0%, transparent 60%),
-        linear-gradient(180deg, color-mix(in srgb, var(--bg) 84%, transparent), var(--bg));
-      filter:saturate(1.06);
+        radial-gradient(42% 42% at 15% 10%, color-mix(in srgb, var(--primary) 18%, transparent) 0%, transparent 56%),
+        radial-gradient(42% 42% at 82% 18%, color-mix(in srgb, var(--accent) 12%, transparent) 0%, transparent 56%),
+        linear-gradient(180deg, color-mix(in srgb, var(--bg) 86%, transparent), var(--bg));
+      filter:saturate(1.03);
       opacity:.95;
     }
     .noise{
       position:fixed;inset:0;z-index:-1;pointer-events:none;
       background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
       mix-blend-mode:overlay;
-      opacity:.18;
+      opacity:.08; /* reduced for readability */
     }
 
     /* Header */
     header{
       position:fixed;top:0;left:0;right:0;z-index:2000;
-      background:color-mix(in srgb, var(--bg) 78%, transparent);
+      background:color-mix(in srgb, var(--bg) 80%, transparent);
       backdrop-filter:blur(18px);
       border-bottom:1px solid color-mix(in srgb, var(--text) 8%, transparent);
       height:82px;
@@ -108,7 +104,7 @@
     header.scrolled{
       box-shadow:0 14px 38px rgba(0,0,0,0.09);
       border-bottom-color:color-mix(in srgb, var(--text) 14%, transparent);
-      background:color-mix(in srgb, var(--bg) 70%, transparent);
+      background:color-mix(in srgb, var(--bg) 74%, transparent);
     }
     .nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;}
 
@@ -136,7 +132,7 @@
       position:absolute;inset:-80%;
       background: radial-gradient(circle at 35% 35%, rgba(255,255,255,.34), transparent 58%);
       transform:rotate(15deg);
-      opacity:.6;
+      opacity:.55;
       pointer-events:none;
     }
     .logo-svg{width:24px;height:24px;display:block;}
@@ -202,7 +198,7 @@
     .burger{display:none;}
     .mobile-drawer{
       position:fixed;top:82px;left:0;right:0;
-      background:color-mix(in srgb, var(--bg) 82%, transparent);
+      background:color-mix(in srgb, var(--bg) 84%, transparent);
       backdrop-filter:blur(16px);
       border-bottom:1px solid color-mix(in srgb, var(--text) 10%, transparent);
       transform:translateY(-18px);
@@ -217,7 +213,7 @@
       padding:14px 14px;border-radius:16px;
       font-weight:900;color:var(--text);
       border:1px solid color-mix(in srgb, var(--text) 8%, transparent);
-      background:color-mix(in srgb, var(--surface) 76%, transparent);
+      background:color-mix(in srgb, var(--surface) 84%, transparent);
     }
     .mobile-actions{display:flex;gap:12px;flex-wrap:wrap;padding:0 16px 18px;}
     .mobile-actions .btn{flex:1;min-width:200px;}
@@ -228,25 +224,30 @@
       position:relative;
     }
 
-    /* Real photo hero backdrop (subtle, premium) */
+    /* Strong scrim behind hero image for readability */
     .hero::before{
       content:"";
       position:absolute;inset:-120px 0 auto 0;
       height:560px;
       background:
-        linear-gradient(180deg, rgba(2,6,23,0.55) 0%, rgba(2,6,23,0.18) 35%, rgba(2,6,23,0.00) 62%),
-        radial-gradient(900px 420px at 18% 20%, rgba(79,70,229,0.22), transparent 60%),
-        radial-gradient(900px 420px at 88% 20%, rgba(6,182,212,0.18), transparent 60%),
+        linear-gradient(180deg,
+          rgba(2,6,23,0.78) 0%,
+          rgba(2,6,23,0.55) 22%,
+          rgba(2,6,23,0.22) 52%,
+          rgba(2,6,23,0.00) 72%
+        ),
+        radial-gradient(900px 420px at 18% 18%, rgba(79,70,229,0.18), transparent 60%),
+        radial-gradient(900px 420px at 88% 18%, rgba(6,182,212,0.12), transparent 60%),
         url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2400&q=60");
       background-size:cover;
       background-position:center;
       filter:saturate(1.02);
-      opacity:.92;
+      opacity:0.95;
       z-index:-1;
     }
     [data-theme="dark"] .hero::before{
-      opacity:.75;
-      filter:saturate(1.00) contrast(1.05);
+      opacity:0.78;
+      filter:saturate(1.0) contrast(1.06);
     }
 
     .hero-grid{
@@ -255,6 +256,21 @@
       gap:34px;
       align-items:center;
     }
+
+    /* Hero content panel (glass) for guaranteed text readability */
+    .hero-panel{
+      background:color-mix(in srgb, var(--surface) 78%, transparent);
+      border:1px solid color-mix(in srgb, var(--text) 10%, transparent);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-lg);
+      padding:28px;
+      backdrop-filter:blur(16px);
+    }
+    .hero-panel .pill{
+      background:color-mix(in srgb, var(--surface) 86%, transparent);
+      border-color:color-mix(in srgb, var(--text) 12%, transparent);
+    }
+
     .pill{
       display:inline-flex;align-items:center;gap:10px;
       padding:10px 16px;border-radius:999px;
@@ -266,7 +282,6 @@
       font-size:14px;
       width:fit-content;
       margin-bottom:14px;
-      backdrop-filter:blur(10px);
     }
     .dot{
       width:10px;height:10px;border-radius:50%;
@@ -274,17 +289,16 @@
       box-shadow:0 10px 18px rgba(6,182,212,0.18);
     }
     h1{
-      font-size:60px;
+      font-size:56px;
       font-weight:950;
       letter-spacing:-0.04em;
-      line-height:1.03;
+      line-height:1.04;
       margin:0 0 18px;
-      text-wrap:balance;
     }
     .hero-lede{
       font-size:20px;color:var(--gray);
       margin:0 0 22px;
-      max-width:52ch;
+      max-width:60ch;
     }
     .hero-lede strong{color:var(--text);font-weight:950;}
     .hero-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;}
@@ -299,13 +313,12 @@
       background:color-mix(in srgb, var(--primary) 10%, var(--surface));
       border:1px solid color-mix(in srgb, var(--primary) 18%, transparent);
       color:var(--primary);
-      backdrop-filter:blur(10px);
     }
     .hero-micro{margin-top:14px;color:var(--muted);font-size:14px;font-weight:750;}
 
     /* Hero visual card */
     .visual-card{
-      background:color-mix(in srgb, var(--surface) 76%, transparent);
+      background:color-mix(in srgb, var(--surface) 82%, transparent);
       border:1px solid color-mix(in srgb, var(--text) 10%, transparent);
       border-radius:var(--radius);
       box-shadow:var(--shadow-lg);
@@ -313,17 +326,15 @@
       position:relative;
       overflow:hidden;
       isolation:isolate;
-      backdrop-filter:blur(14px);
     }
     .visual-card::before{
       content:"";
       position:absolute;inset:-30%;
       background:
-        radial-gradient(42% 42% at 20% 18%, color-mix(in srgb, var(--primary) 20%, transparent) 0%, transparent 58%),
-        radial-gradient(42% 42% at 85% 24%, color-mix(in srgb, var(--accent) 16%, transparent) 0%, transparent 58%),
-        radial-gradient(44% 44% at 60% 92%, color-mix(in srgb, var(--accent-2) 14%, transparent) 0%, transparent 60%);
+        radial-gradient(42% 42% at 20% 18%, color-mix(in srgb, var(--primary) 18%, transparent) 0%, transparent 58%),
+        radial-gradient(42% 42% at 85% 24%, color-mix(in srgb, var(--accent) 14%, transparent) 0%, transparent 58%);
       filter:blur(10px);
-      opacity:.95;
+      opacity:.75;
       z-index:-1;
     }
     .visual-top{
@@ -334,9 +345,8 @@
       display:inline-flex;align-items:center;gap:8px;
       padding:8px 12px;border-radius:999px;
       border:1px solid color-mix(in srgb, var(--text) 12%, transparent);
-      background:color-mix(in srgb, var(--surface) 72%, transparent);
+      background:color-mix(in srgb, var(--surface) 78%, transparent);
       font-size:12px;font-weight:900;color:var(--gray);
-      backdrop-filter:blur(10px);
     }
     .status i{
       width:8px;height:8px;border-radius:50%;
@@ -344,48 +354,6 @@
       display:inline-block;
       box-shadow:0 10px 16px rgba(34,197,94,0.18);
     }
-
-    /* Real photo inside the hero card (UX upgrade) */
-    .visual-photo{
-      width:100%;
-      height:220px;
-      border-radius:18px;
-      overflow:hidden;
-      border:1px solid color-mix(in srgb, var(--text) 10%, transparent);
-      box-shadow:0 14px 34px rgba(2,6,23,0.10);
-      position:relative;
-      margin-bottom:14px;
-      background:var(--soft2);
-    }
-    .visual-photo img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-      transform:scale(1.02);
-      filter:saturate(1.03) contrast(1.02);
-    }
-    .visual-photo::after{
-      content:"";
-      position:absolute;inset:0;
-      background:
-        radial-gradient(600px 280px at 20% 20%, rgba(79,70,229,0.22), transparent 60%),
-        linear-gradient(180deg, rgba(2,6,23,0.05) 0%, rgba(2,6,23,0.42) 100%);
-      pointer-events:none;
-    }
-    .visual-photo .label{
-      position:absolute;left:14px;bottom:14px;
-      padding:10px 12px;border-radius:999px;
-      background:color-mix(in srgb, var(--surface) 76%, transparent);
-      border:1px solid color-mix(in srgb, var(--text) 10%, transparent);
-      backdrop-filter:blur(12px);
-      font-weight:950;
-      color:var(--text);
-      box-shadow:0 14px 34px rgba(2,6,23,0.12);
-      font-size:13px;
-      z-index:1;
-    }
-
     .visual-illustration{
       width:100%;
       height:auto;
@@ -396,34 +364,6 @@
       box-shadow:0 14px 34px rgba(2,6,23,0.08);
       overflow:hidden;
     }
-
-    /* Toggle: show photo + keep SVG below (default) */
-    .visual-toggle{
-      display:flex;gap:10px;align-items:center;justify-content:flex-end;
-      margin:2px 0 10px;
-      color:var(--muted);
-      font-weight:850;
-      font-size:12px;
-    }
-    .switch{
-      width:46px;height:28px;border-radius:999px;
-      border:1px solid color-mix(in srgb, var(--text) 14%, transparent);
-      background:color-mix(in srgb, var(--surface) 72%, transparent);
-      position:relative;
-      cursor:pointer;
-      box-shadow:0 10px 22px rgba(2,6,23,0.06);
-    }
-    .switch::after{
-      content:"";
-      width:22px;height:22px;border-radius:50%;
-      position:absolute;top:2px;left:2px;
-      background:linear-gradient(135deg, var(--primary), var(--accent));
-      transition:transform .18s ease;
-      box-shadow:0 10px 18px rgba(79,70,229,0.22);
-    }
-    .switch.on::after{transform:translateX(18px);}
-    .switch-label{user-select:none;}
-
     .visual-metrics{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -431,18 +371,17 @@
       margin-top:14px;
     }
     .metric{
-      background:color-mix(in srgb, var(--surface) 72%, transparent);
+      background:color-mix(in srgb, var(--surface) 78%, transparent);
       border:1px solid color-mix(in srgb, var(--text) 10%, transparent);
       border-radius:18px;
       padding:12px;
-      backdrop-filter:blur(10px);
     }
     .metric .k{font-size:12px;color:var(--muted);font-weight:850;letter-spacing:.08em;text-transform:uppercase;}
     .metric .v{font-size:18px;font-weight:950;letter-spacing:-0.02em;margin-top:6px;}
     .metric .s{font-size:12px;color:var(--muted);font-weight:750;margin-top:4px;}
 
     /* Sections */
-    .section{padding:98px 0;}
+    .section{padding:104px 0;}
     .section-alt{
       background:color-mix(in srgb, var(--soft) 78%, transparent);
       border-top:1px solid color-mix(in srgb, var(--text) 6%, transparent);
@@ -454,12 +393,11 @@
       text-align:center;
       letter-spacing:-0.04em;
       margin-bottom:14px;
-      text-wrap:balance;
     }
     .subtitle{
       text-align:center;
-      max-width:920px;
-      margin:0 auto 50px;
+      max-width:72ch;
+      margin:0 auto 52px;
       font-size:19px;
       color:var(--gray);
     }
@@ -482,7 +420,6 @@
       font-weight:850;
       font-size:13px;
       background:color-mix(in srgb, var(--surface) 60%, transparent);
-      backdrop-filter:blur(10px);
     }
 
     /* Grids */
@@ -492,29 +429,28 @@
 
     /* Cards */
     .card{
-      background:color-mix(in srgb, var(--surface) 78%, transparent);
+      background:color-mix(in srgb, var(--surface) 82%, transparent);
       border:1px solid color-mix(in srgb, var(--text) 10%, transparent);
       border-radius:var(--radius);
       padding:26px;
       box-shadow:var(--shadow);
       transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
-      min-height: 250px;
+      min-height:auto;
       position:relative;
       overflow:hidden;
-      backdrop-filter:blur(10px);
     }
     .card::before{
       content:"";
       position:absolute;inset:-40%;
-      background: radial-gradient(35% 35% at 20% 20%, color-mix(in srgb, var(--primary) 14%, transparent) 0%, transparent 56%);
-      opacity:.55;
+      background: radial-gradient(35% 35% at 20% 20%, color-mix(in srgb, var(--primary) 12%, transparent) 0%, transparent 56%);
+      opacity:.45;
       pointer-events:none;
     }
     .card:hover{
       transform:translateY(-6px);
       box-shadow:var(--shadow-lg);
       border-color:color-mix(in srgb, var(--primary) 22%, transparent);
-      background:color-mix(in srgb, var(--surface) 84%, transparent);
+      background:color-mix(in srgb, var(--surface) 88%, transparent);
     }
 
     /* Card icon */
@@ -523,7 +459,7 @@
       display:flex;align-items:center;justify-content:center;
       margin-bottom:12px;
       background:
-        radial-gradient(140% 140% at 30% 20%, color-mix(in srgb, var(--accent) 22%, transparent) 0%, transparent 55%),
+        radial-gradient(140% 140% at 30% 20%, color-mix(in srgb, var(--accent) 18%, transparent) 0%, transparent 55%),
         color-mix(in srgb, var(--primary) 10%, var(--surface));
       border:1px solid color-mix(in srgb, var(--primary) 18%, transparent);
       box-shadow:0 14px 30px rgba(2,6,23,0.06);
@@ -538,7 +474,7 @@
       margin-bottom:10px;
     }
     .card h3{font-size:20px;font-weight:950;letter-spacing:-0.02em;margin-bottom:10px;position:relative;}
-    .card p{color:var(--gray);font-size:16px;position:relative;}
+    .card p{color:var(--gray);font-size:16px;position:relative;max-width:62ch;}
 
     .list{margin-top:14px;display:flex;flex-direction:column;gap:10px;position:relative;}
     .li{display:flex;gap:12px;align-items:flex-start;color:var(--gray);font-weight:650;font-size:15px;}
@@ -571,61 +507,15 @@
     .proof-chip{
       padding:10px 14px;border-radius:999px;
       font-weight:900;font-size:13px;
-      background:color-mix(in srgb, var(--surface) 72%, transparent);
+      background:color-mix(in srgb, var(--surface) 78%, transparent);
       border:1px solid color-mix(in srgb, var(--text) 10%, transparent);
       color:var(--gray);
-      backdrop-filter:blur(10px);
-    }
-
-    /* NEW: Photo strip in Proof section (real photos, no text changes) */
-    .photo-strip{
-      display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap:14px;
-      margin:10px 0 18px;
-    }
-    .photo-tile{
-      border-radius:var(--radius);
-      overflow:hidden;
-      border:1px solid color-mix(in srgb, var(--text) 10%, transparent);
-      box-shadow:var(--shadow);
-      position:relative;
-      background:var(--soft2);
-      min-height:220px;
-    }
-    .photo-tile img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-      transform:scale(1.02);
-      filter:saturate(1.02) contrast(1.02);
-    }
-    .photo-tile::after{
-      content:"";
-      position:absolute;inset:0;
-      background:
-        radial-gradient(720px 360px at 25% 20%, rgba(79,70,229,0.20), transparent 60%),
-        linear-gradient(180deg, rgba(2,6,23,0.00) 0%, rgba(2,6,23,0.45) 100%);
-      pointer-events:none;
-    }
-    .photo-caption{
-      position:absolute;left:14px;bottom:14px;
-      padding:10px 12px;border-radius:999px;
-      background:color-mix(in srgb, var(--surface) 76%, transparent);
-      border:1px solid color-mix(in srgb, var(--text) 10%, transparent);
-      backdrop-filter:blur(12px);
-      font-weight:950;
-      color:var(--text);
-      box-shadow:0 14px 34px rgba(2,6,23,0.12);
-      font-size:13px;
-      z-index:1;
     }
 
     /* Decision tree */
     .tree{
       max-width:1060px;margin:0 auto;
-      background:color-mix(in srgb, var(--surface) 78%, transparent);
+      background:color-mix(in srgb, var(--surface) 84%, transparent);
       border:1px solid color-mix(in srgb, var(--text) 10%, transparent);
       border-radius:var(--radius);
       box-shadow:var(--shadow-lg);
@@ -633,17 +523,15 @@
       overflow:hidden;
       position:relative;
       isolation:isolate;
-      backdrop-filter:blur(12px);
     }
     .tree::before{
       content:"";
       position:absolute;inset:-30%;
       background:
-        radial-gradient(40% 40% at 20% 10%, color-mix(in srgb, var(--primary) 18%, transparent) 0%, transparent 55%),
-        radial-gradient(40% 40% at 80% 20%, color-mix(in srgb, var(--accent) 14%, transparent) 0%, transparent 55%),
-        radial-gradient(40% 40% at 60% 90%, color-mix(in srgb, var(--accent-2) 12%, transparent) 0%, transparent 55%);
+        radial-gradient(40% 40% at 20% 10%, color-mix(in srgb, var(--primary) 16%, transparent) 0%, transparent 55%),
+        radial-gradient(40% 40% at 80% 20%, color-mix(in srgb, var(--accent) 12%, transparent) 0%, transparent 55%);
       filter:blur(10px);
-      opacity:.7;
+      opacity:.55;
       pointer-events:none;
       z-index:-1;
     }
@@ -664,7 +552,7 @@
       padding:10px 12px;font-weight:950;cursor:pointer;
       color:var(--gray);
     }
-    .seg button.active{background:color-mix(in srgb, var(--surface) 85%, transparent);color:var(--text);}
+    .seg button.active{background:color-mix(in srgb, var(--surface) 88%, transparent);color:var(--text);}
     .tree-grid{
       display:grid;grid-template-columns:1.1fr .9fr;gap:14px;align-items:start;
       margin-top:8px;
@@ -682,7 +570,7 @@
       display:flex;align-items:center;justify-content:space-between;gap:12px;
       padding:14px 14px;border-radius:16px;
       border:1px solid color-mix(in srgb, var(--text) 12%, transparent);
-      background:color-mix(in srgb, var(--surface) 78%, transparent);
+      background:color-mix(in srgb, var(--surface) 84%, transparent);
       cursor:pointer;
       font-weight:950;
       transition:transform .15s ease, border-color .2s ease, background .2s ease;
@@ -695,7 +583,7 @@
     }
     .opt small{font-weight:750;color:var(--muted);}
     .result{
-      background:color-mix(in srgb, var(--surface) 82%, transparent);
+      background:color-mix(in srgb, var(--surface) 88%, transparent);
       border:1px solid color-mix(in srgb, var(--text) 10%, transparent);
       border-radius:var(--radius2);
       padding:18px;
@@ -720,33 +608,6 @@
     .result .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;}
     .result .actions .btn{flex:1;min-width:220px;}
 
-    /* How section: add real photo tile (UX only) */
-    .how-photo{
-      border-radius:var(--radius);
-      overflow:hidden;
-      border:1px solid color-mix(in srgb, var(--text) 10%, transparent);
-      box-shadow:var(--shadow);
-      background:var(--soft2);
-      min-height: 290px;
-      position:relative;
-    }
-    .how-photo img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-      transform:scale(1.02);
-    }
-    .how-photo::after{
-      content:"";
-      position:absolute;inset:0;
-      background:
-        radial-gradient(720px 360px at 25% 25%, rgba(6,182,212,0.18), transparent 60%),
-        linear-gradient(180deg, rgba(2,6,23,0.04) 0%, rgba(2,6,23,0.40) 100%);
-      pointer-events:none;
-    }
-    .how-photo .photo-caption{left:14px;bottom:14px;}
-
     /* Contact */
     .contact{text-align:center;padding:110px 0;}
     .contact-grid{
@@ -756,21 +617,20 @@
     .contact-card{
       text-align:left;
       padding:24px;
-      background:color-mix(in srgb, var(--surface) 78%, transparent);
+      background:color-mix(in srgb, var(--surface) 84%, transparent);
       border:1px solid color-mix(in srgb, var(--text) 10%, transparent);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
       position:relative;
       overflow:hidden;
-      backdrop-filter:blur(12px);
     }
     .contact-card::before{
       content:"";
       position:absolute;inset:-40%;
       background:
-        radial-gradient(35% 35% at 20% 20%, color-mix(in srgb, var(--primary) 14%, transparent) 0%, transparent 56%),
-        radial-gradient(35% 35% at 90% 30%, color-mix(in srgb, var(--accent) 12%, transparent) 0%, transparent 56%);
-      opacity:.6;
+        radial-gradient(35% 35% at 20% 20%, color-mix(in srgb, var(--primary) 12%, transparent) 0%, transparent 56%),
+        radial-gradient(35% 35% at 90% 30%, color-mix(in srgb, var(--accent) 10%, transparent) 0%, transparent 56%);
+      opacity:.45;
       pointer-events:none;
     }
     .contact-card > *{position:relative;}
@@ -790,7 +650,7 @@
       padding:12px 12px;
       border-radius:14px;
       border:1px solid color-mix(in srgb, var(--text) 14%, transparent);
-      background:color-mix(in srgb, var(--surface) 86%, transparent);
+      background:color-mix(in srgb, var(--surface) 90%, transparent);
       color:var(--text);
       font-family:inherit;
       font-weight:650;
@@ -819,14 +679,13 @@
     .theme-toggle{
       position:fixed;right:22px;bottom:22px;z-index:2500;
       width:64px;height:64px;border-radius:50%;
-      background:color-mix(in srgb, var(--surface) 80%, transparent);
+      background:color-mix(in srgb, var(--surface) 86%, transparent);
       border:1px solid color-mix(in srgb, var(--text) 12%, transparent);
       box-shadow:var(--shadow);
       display:flex;align-items:center;justify-content:center;
       cursor:pointer;
       transition:transform .18s ease, background .2s ease,color .2s ease;
       color:var(--text);
-      backdrop-filter:blur(12px);
     }
     .theme-toggle:hover{transform:scale(1.06);}
     .theme-toggle:focus{outline:none;box-shadow:var(--ring);}
@@ -836,14 +695,11 @@
       .nav-links{display:none;}
       .burger{display:inline-flex;}
       .hero{padding:132px 0 86px;}
-      .hero::before{height:520px;}
       .hero-grid{grid-template-columns:1fr;gap:18px;}
-      h1{font-size:48px;}
+      h1{font-size:46px;}
       .grid-4,.grid-3,.grid-2{grid-template-columns:1fr;}
       .tree-grid{grid-template-columns:1fr;}
       .contact-grid{grid-template-columns:1fr;}
-      .photo-strip{grid-template-columns:1fr;}
-      .visual-photo{height:220px;}
     }
     @media (max-width:640px){
       .container{padding:0 16px;}
@@ -852,7 +708,7 @@
       .brand{font-size:18px;min-width:auto;}
       .logo-wrap{width:36px;height:36px;border-radius:12px;}
       .logo-svg{width:22px;height:22px;}
-      h1{font-size:38px;}
+      h1{font-size:36px;}
       h2{font-size:36px;}
       .subtitle{font-size:18px;margin-bottom:40px;}
       .hero-row .btn{width:100%;min-width:unset;max-width:520px;}
@@ -861,11 +717,6 @@
       .contact-card{padding:20px;}
       .form-row{grid-template-columns:1fr;}
       .product-note a{display:inline-block;margin-left:0;margin-top:6px;}
-      .visual-photo{height:200px;}
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      *{scroll-behavior:auto !important;transition:none !important;animation:none !important;}
     }
   </style>
 </head>
@@ -931,7 +782,7 @@
     <section class="hero">
       <div class="container">
         <div class="hero-grid">
-          <div>
+          <div class="hero-panel">
             <div class="pill" role="note" aria-label="Positioning">
               <span class="dot" aria-hidden="true"></span>
               Principal-led AI consultancy for regulated & high-scrutiny decisions
@@ -963,114 +814,98 @@
             </div>
           </div>
 
-          <!-- Visual / image area (real photo + your SVG) -->
+          <!-- Visual / image area (inline SVG illustration) -->
           <div class="visual-card" aria-label="Illustration: defensible AI delivery">
             <div class="visual-top">
               <div class="visual-title">Defensible delivery system</div>
               <div class="status"><i aria-hidden="true"></i> Audit-ready</div>
             </div>
 
-            <div class="visual-toggle" aria-label="Toggle: show illustration">
-              <span class="switch-label">Show illustration</span>
-              <div class="switch on" id="vizSwitch" role="switch" aria-checked="true" tabindex="0" aria-label="Toggle illustration"></div>
-            </div>
+            <svg class="visual-illustration" viewBox="0 0 920 560" role="img" aria-label="Illustration: governance, guardrails and delivery">
+              <defs>
+                <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="currentColor" stop-opacity="0.00"></stop>
+                  <stop offset="1" stop-color="currentColor" stop-opacity="0.10"></stop>
+                </linearGradient>
+                <linearGradient id="p1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#4f46e5" stop-opacity="1"></stop>
+                  <stop offset="1" stop-color="#06b6d4" stop-opacity="1"></stop>
+                </linearGradient>
+                <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#020617" flood-opacity="0.18"/>
+                </filter>
+              </defs>
 
-            <div class="visual-photo" aria-label="Real photo: decision making">
-              <img
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=2400&q=60"
-                alt="Team decision-making session"
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="label">Decision clarity under scrutiny</div>
-            </div>
+              <!-- Background grid -->
+              <rect x="0" y="0" width="920" height="560" fill="url(#g1)"></rect>
+              <g opacity="0.12">
+                <path d="M0 90H920M0 170H920M0 250H920M0 330H920M0 410H920M0 490H920" stroke="currentColor" stroke-width="1"/>
+                <path d="M110 0V560M230 0V560M350 0V560M470 0V560M590 0V560M710 0V560M830 0V560" stroke="currentColor" stroke-width="1"/>
+              </g>
 
-            <div id="vizSvgWrap">
-              <svg class="visual-illustration" viewBox="0 0 920 560" role="img" aria-label="Illustration: governance, guardrails and delivery">
-                <defs>
-                  <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="currentColor" stop-opacity="0.00"></stop>
-                    <stop offset="1" stop-color="currentColor" stop-opacity="0.10"></stop>
-                  </linearGradient>
-                  <linearGradient id="p1" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#4f46e5" stop-opacity="1"></stop>
-                    <stop offset="1" stop-color="#06b6d4" stop-opacity="1"></stop>
-                  </linearGradient>
-                  <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-                    <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#020617" flood-opacity="0.18"/>
-                  </filter>
-                </defs>
+              <!-- Main pipeline -->
+              <g filter="url(#softShadow)">
+                <rect x="70" y="120" width="280" height="110" rx="22" fill="white" opacity="0.92"></rect>
+                <rect x="70" y="250" width="280" height="110" rx="22" fill="white" opacity="0.92"></rect>
+                <rect x="70" y="380" width="280" height="110" rx="22" fill="white" opacity="0.92"></rect>
 
-                <!-- Background grid -->
-                <rect x="0" y="0" width="920" height="560" fill="url(#g1)"></rect>
-                <g opacity="0.12">
-                  <path d="M0 90H920M0 170H920M0 250H920M0 330H920M0 410H920M0 490H920" stroke="currentColor" stroke-width="1"/>
-                  <path d="M110 0V560M230 0V560M350 0V560M470 0V560M590 0V560M710 0V560M830 0V560" stroke="currentColor" stroke-width="1"/>
-                </g>
+                <rect x="390" y="170" width="460" height="320" rx="26" fill="white" opacity="0.92"></rect>
+              </g>
 
-                <!-- Main pipeline -->
-                <g filter="url(#softShadow)">
-                  <rect x="70" y="120" width="280" height="110" rx="22" fill="white" opacity="0.92"></rect>
-                  <rect x="70" y="250" width="280" height="110" rx="22" fill="white" opacity="0.92"></rect>
-                  <rect x="70" y="380" width="280" height="110" rx="22" fill="white" opacity="0.92"></rect>
-                  <rect x="390" y="170" width="460" height="320" rx="26" fill="white" opacity="0.92"></rect>
-                </g>
+              <!-- Left nodes -->
+              <g>
+                <circle cx="105" cy="155" r="16" fill="url(#p1)"></circle>
+                <text x="140" y="162" font-family="Inter, system-ui" font-weight="800" font-size="24" fill="#0f172a">Decision</text>
+                <text x="140" y="192" font-family="Inter, system-ui" font-weight="600" font-size="16" fill="#334155">clarify trade-offs & owners</text>
 
-                <!-- Left nodes -->
+                <circle cx="105" cy="285" r="16" fill="url(#p1)"></circle>
+                <text x="140" y="292" font-family="Inter, system-ui" font-weight="800" font-size="24" fill="#0f172a">Governance</text>
+                <text x="140" y="322" font-family="Inter, system-ui" font-weight="600" font-size="16" fill="#334155">controls & evidence trails</text>
+
+                <circle cx="105" cy="415" r="16" fill="url(#p1)"></circle>
+                <text x="140" y="422" font-family="Inter, system-ui" font-weight="800" font-size="24" fill="#0f172a">Guardrails</text>
+                <text x="140" y="452" font-family="Inter, system-ui" font-weight="600" font-size="16" fill="#334155">speed + safety together</text>
+              </g>
+
+              <!-- Connectors -->
+              <g opacity="0.9">
+                <path d="M350 175 C 390 175, 390 210, 420 220" stroke="url(#p1)" stroke-width="4" fill="none" stroke-linecap="round"/>
+                <path d="M350 305 C 390 305, 390 300, 420 310" stroke="url(#p1)" stroke-width="4" fill="none" stroke-linecap="round"/>
+                <path d="M350 435 C 390 435, 390 380, 420 370" stroke="url(#p1)" stroke-width="4" fill="none" stroke-linecap="round"/>
+              </g>
+
+              <!-- Right panel content -->
+              <g>
+                <text x="430" y="215" font-family="Inter, system-ui" font-weight="900" font-size="26" fill="#0f172a">Delivery artifacts</text>
+                <text x="430" y="245" font-family="Inter, system-ui" font-weight="600" font-size="16" fill="#334155">Reusable outputs teams can run with</text>
+
+                <!-- chips -->
                 <g>
-                  <circle cx="105" cy="155" r="16" fill="url(#p1)"></circle>
-                  <text x="140" y="162" font-family="Inter, system-ui" font-weight="800" font-size="24" fill="#0f172a">Decision</text>
-                  <text x="140" y="192" font-family="Inter, system-ui" font-weight="600" font-size="16" fill="#334155">clarify trade-offs & owners</text>
+                  <rect x="430" y="270" width="220" height="46" rx="16" fill="#eef2ff"></rect>
+                  <text x="450" y="300" font-family="Inter, system-ui" font-weight="800" font-size="16" fill="#4f46e5">Decision brief</text>
 
-                  <circle cx="105" cy="285" r="16" fill="url(#p1)"></circle>
-                  <text x="140" y="292" font-family="Inter, system-ui" font-weight="800" font-size="24" fill="#0f172a">Governance</text>
-                  <text x="140" y="322" font-family="Inter, system-ui" font-weight="600" font-size="16" fill="#334155">controls & evidence trails</text>
+                  <rect x="670" y="270" width="170" height="46" rx="16" fill="#ecfeff"></rect>
+                  <text x="690" y="300" font-family="Inter, system-ui" font-weight="800" font-size="16" fill="#06b6d4">Evidence pack</text>
 
-                  <circle cx="105" cy="415" r="16" fill="url(#p1)"></circle>
-                  <text x="140" y="422" font-family="Inter, system-ui" font-weight="800" font-size="24" fill="#0f172a">Guardrails</text>
-                  <text x="140" y="452" font-family="Inter, system-ui" font-weight="600" font-size="16" fill="#334155">speed + safety together</text>
+                  <rect x="430" y="330" width="240" height="46" rx="16" fill="#ecfdf5"></rect>
+                  <text x="450" y="360" font-family="Inter, system-ui" font-weight="800" font-size="16" fill="#16a34a">Controls & owners</text>
+
+                  <rect x="690" y="330" width="150" height="46" rx="16" fill="#f1f5f9"></rect>
+                  <text x="710" y="360" font-family="Inter, system-ui" font-weight="800" font-size="16" fill="#0f172a">Guardrails</text>
+
+                  <rect x="430" y="390" width="260" height="46" rx="16" fill="#fef3c7"></rect>
+                  <text x="450" y="420" font-family="Inter, system-ui" font-weight="800" font-size="16" fill="#b45309">90-day delivery plan</text>
                 </g>
 
-                <!-- Connectors -->
-                <g opacity="0.9">
-                  <path d="M350 175 C 390 175, 390 210, 420 220" stroke="url(#p1)" stroke-width="4" fill="none" stroke-linecap="round"/>
-                  <path d="M350 305 C 390 305, 390 300, 420 310" stroke="url(#p1)" stroke-width="4" fill="none" stroke-linecap="round"/>
-                  <path d="M350 435 C 390 435, 390 380, 420 370" stroke="url(#p1)" stroke-width="4" fill="none" stroke-linecap="round"/>
+                <!-- small “graph” -->
+                <g opacity="0.95">
+                  <rect x="430" y="460" width="410" height="10" rx="6" fill="#e2e8f0"></rect>
+                  <rect x="430" y="460" width="280" height="10" rx="6" fill="url(#p1)"></rect>
+
+                  <text x="430" y="508" font-family="Inter, system-ui" font-weight="700" font-size="14" fill="#64748b">Fewer unknowns • faster alignment • safer scale</text>
                 </g>
-
-                <!-- Right panel content -->
-                <g>
-                  <text x="430" y="215" font-family="Inter, system-ui" font-weight="900" font-size="26" fill="#0f172a">Delivery artifacts</text>
-                  <text x="430" y="245" font-family="Inter, system-ui" font-weight="600" font-size="16" fill="#334155">Reusable outputs teams can run with</text>
-
-                  <!-- chips -->
-                  <g>
-                    <rect x="430" y="270" width="220" height="46" rx="16" fill="#eef2ff"></rect>
-                    <text x="450" y="300" font-family="Inter, system-ui" font-weight="800" font-size="16" fill="#4f46e5">Decision brief</text>
-
-                    <rect x="670" y="270" width="170" height="46" rx="16" fill="#ecfeff"></rect>
-                    <text x="690" y="300" font-family="Inter, system-ui" font-weight="800" font-size="16" fill="#06b6d4">Evidence pack</text>
-
-                    <rect x="430" y="330" width="240" height="46" rx="16" fill="#ecfdf5"></rect>
-                    <text x="450" y="360" font-family="Inter, system-ui" font-weight="800" font-size="16" fill="#16a34a">Controls & owners</text>
-
-                    <rect x="690" y="330" width="150" height="46" rx="16" fill="#f1f5f9"></rect>
-                    <text x="710" y="360" font-family="Inter, system-ui" font-weight="800" font-size="16" fill="#0f172a">Guardrails</text>
-
-                    <rect x="430" y="390" width="260" height="46" rx="16" fill="#fef3c7"></rect>
-                    <text x="450" y="420" font-family="Inter, system-ui" font-weight="800" font-size="16" fill="#b45309">90-day delivery plan</text>
-                  </g>
-
-                  <!-- small “graph” -->
-                  <g opacity="0.95">
-                    <rect x="430" y="460" width="410" height="10" rx="6" fill="#e2e8f0"></rect>
-                    <rect x="430" y="460" width="280" height="10" rx="6" fill="url(#p1)"></rect>
-
-                    <text x="430" y="508" font-family="Inter, system-ui" font-weight="700" font-size="14" fill="#64748b">Fewer unknowns • faster alignment • safer scale</text>
-                  </g>
-                </g>
-              </svg>
-            </div>
+              </g>
+            </svg>
 
             <div class="visual-metrics" aria-label="Signals">
               <div class="metric">
@@ -1238,28 +1073,6 @@
           </div>
         </div>
 
-        <!-- Real photo strip (UX only, content unchanged) -->
-        <div class="photo-strip" aria-label="Real work photos">
-          <div class="photo-tile">
-            <img
-              src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=2400&q=60"
-              alt="Team session: alignment and decision making"
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="photo-caption">Alignment & decision making</div>
-          </div>
-          <div class="photo-tile">
-            <img
-              src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=2000&q=60"
-              alt="Board-level work: review and scrutiny"
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="photo-caption">Board / audit scrutiny</div>
-          </div>
-        </div>
-
         <div class="proof-strip" aria-label="Common environments">
           <span class="proof-chip">Regulated environments</span>
           <span class="proof-chip">Audit & assurance</span>
@@ -1400,19 +1213,6 @@
               <div class="li"><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>Accountability map + control owners</div>
               <div class="li"><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>Evidence pack templates for assurance</div>
             </div>
-          </div>
-        </div>
-
-        <!-- UX-only photo tile (no text changes) -->
-        <div style="max-width:980px;margin:18px auto 0;">
-          <div class="how-photo" aria-label="Real photo: calm delivery">
-            <img
-              src="https://images.unsplash.com/photo-1523952578875-e6bb18b26645?auto=format&fit=crop&w=2400&q=60"
-              alt="Structured workshop and delivery planning"
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="photo-caption">Calm, structured delivery</div>
           </div>
         </div>
 
@@ -1595,30 +1395,6 @@
       });
       document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeDrawer(); });
     }
-
-    // Visual toggle (illustration)
-    const vizSwitch = document.getElementById("vizSwitch");
-    const vizSvgWrap = document.getElementById("vizSvgWrap");
-    function setViz(on){
-      if(on){
-        vizSwitch.classList.add("on");
-        vizSwitch.setAttribute("aria-checked", "true");
-        vizSvgWrap.style.display = "";
-      }else{
-        vizSwitch.classList.remove("on");
-        vizSwitch.setAttribute("aria-checked", "false");
-        vizSvgWrap.style.display = "none";
-      }
-    }
-    // default: ON
-    setViz(true);
-    vizSwitch.addEventListener("click", () => setViz(!(vizSwitch.getAttribute("aria-checked")==="true")));
-    vizSwitch.addEventListener("keydown", (e) => {
-      if(e.key==="Enter" || e.key===" "){
-        e.preventDefault();
-        setViz(!(vizSwitch.getAttribute("aria-checked")==="true"));
-      }
-    });
 
     // Decision tree logic
     const modeFast = document.getElementById("modeFast");
