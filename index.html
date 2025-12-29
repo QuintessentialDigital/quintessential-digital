@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Quintessential Digital — Trust Architecture • Responsible AI • AI Strategy</title>
-  <meta name="description" content="Principal-led AI consultancy for regulated environments: AI strategy, Responsible AI governance, trust architecture, decision intelligence, and delivery guardrails that survive scrutiny." />
+  <title>Quintessential Digital — Trust Architecture • Responsible AI • Product & AI Delivery</title>
+  <meta name="description" content="Principal-led AI consultancy for regulated environments: AI strategy, Responsible AI governance, trust architecture, decision intelligence, and AI-enabled product delivery that survives scrutiny." />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#f9fafb" id="themeColorMeta" />
   <link rel="canonical" href="https://www.quintessentialdigital.com/" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Quintessential Digital — Trust Architecture • Responsible AI • AI Strategy" />
-  <meta property="og:description" content="Defensible decisions. Audit-ready governance. AI that scales without becoming tomorrow’s risk." />
+  <meta property="og:title" content="Quintessential Digital — Trust Architecture • Responsible AI • Product & AI Delivery" />
+  <meta property="og:description" content="Defensible decisions. Audit-ready governance. AI and products that scale without becoming tomorrow’s risk." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.quintessentialdigital.com/" />
 
@@ -85,7 +85,7 @@
     }
     .nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;}
 
-    /* NEW: Simple, professional logo */
+    /* Logo */
     .brand{
       display:flex;align-items:center;gap:12px;
       font-weight:950;letter-spacing:-0.02em;
@@ -138,6 +138,7 @@
     .btn-soft:hover{background:color-mix(in srgb, var(--primary) 14%, var(--surface));}
     .btn-large{padding:18px 34px;font-size:18px;}
 
+    /* Hero pill */
     .pill{
       display:inline-flex;align-items:center;gap:10px;
       padding:10px 16px;border-radius:999px;
@@ -190,7 +191,6 @@
       border:1px solid color-mix(in srgb, var(--text) 8%, transparent);
       background:color-mix(in srgb, var(--surface) 88%, transparent);
     }
-    .mobile-links a:hover{border-color:color-mix(in srgb, var(--primary) 40%, transparent);color:var(--primary);}
     .mobile-actions{display:flex;gap:12px;flex-wrap:wrap;padding:0 16px 18px;}
     .mobile-actions .btn{flex:1;min-width:200px;}
 
@@ -268,8 +268,10 @@
       color:var(--gray);
     }
 
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;}
     .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
     .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;}
+
     .card{
       background:var(--surface);
       border:1px solid color-mix(in srgb, var(--text) 8%, transparent);
@@ -277,6 +279,7 @@
       padding:34px;
       box-shadow:var(--shadow);
       transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      min-height: 260px;
     }
     .card:hover{
       transform:translateY(-7px);
@@ -297,13 +300,9 @@
     }
     .card h3{font-size:22px;font-weight:950;letter-spacing:-0.02em;margin-bottom:10px;}
     .card p{color:var(--gray);font-size:16.5px;}
+
     .list{margin-top:14px;display:flex;flex-direction:column;gap:10px;}
-    .li{
-      display:flex;gap:12px;align-items:flex-start;
-      color:var(--gray);
-      font-weight:650;
-      font-size:15.5px;
-    }
+    .li{display:flex;gap:12px;align-items:flex-start;color:var(--gray);font-weight:650;font-size:15.5px;}
     .check{
       width:18px;height:18px;border-radius:6px;
       background:color-mix(in srgb, var(--accent-2) 18%, var(--surface));
@@ -313,7 +312,20 @@
     }
     .check svg{width:12px;height:12px;}
 
-    /* Proof */
+    /* subtle product link block inside card */
+    .product-note{
+      margin-top:14px;
+      font-size:14px;
+      color:var(--muted);
+    }
+    .product-note a{
+      font-weight:900;
+      color:var(--primary);
+      margin-left:6px;
+      white-space:nowrap;
+    }
+
+    /* Proof strip */
     .proof-strip{
       display:flex;gap:12px;justify-content:center;flex-wrap:wrap;
       margin:-6px auto 26px;
@@ -388,6 +400,7 @@
       cursor:pointer;
       font-weight:950;
       transition:transform .15s ease, border-color .2s ease, background .2s ease;
+      text-align:left;
     }
     .opt:hover{transform:translateY(-1px);border-color:color-mix(in srgb, var(--primary) 30%, transparent);}
     .opt small{font-weight:750;color:var(--muted);}
@@ -404,7 +417,10 @@
       color:var(--muted);
       margin-bottom:10px;
     }
-    .result .label .kicon{background:color-mix(in srgb, var(--accent) 14%, var(--surface));border-color:color-mix(in srgb, var(--accent) 22%, transparent);}
+    .result .label .kicon{
+      background:color-mix(in srgb, var(--accent) 14%, var(--surface));
+      border-color:color-mix(in srgb, var(--accent) 22%, transparent);
+    }
     .result h4{font-size:22px;font-weight:950;letter-spacing:-0.02em;margin-bottom:8px;}
     .result p{color:var(--gray);margin-bottom:14px;}
     .result .mini{display:flex;flex-direction:column;gap:10px;margin-top:12px;}
@@ -432,6 +448,7 @@
       font-weight:950;
       color:var(--primary);
       margin-top:6px;
+      word-break:break-word;
     }
     .hint{color:var(--muted);margin-top:10px;font-weight:750;}
     .field{display:flex;flex-direction:column;gap:8px;margin-top:14px;}
@@ -484,6 +501,7 @@
     /* Responsive */
     @media (max-width:1100px){
       h1{font-size:54px;}
+      .grid-4{grid-template-columns:1fr;gap:18px;}
       .grid-3{grid-template-columns:1fr;gap:18px;}
       .grid-2{grid-template-columns:1fr;gap:18px;}
       .tree-grid{grid-template-columns:1fr;gap:14px;}
@@ -508,6 +526,7 @@
       .card{padding:26px;border-radius:22px;}
       .contact-card{padding:22px;}
       .form-row{grid-template-columns:1fr;}
+      .product-note a{display:inline-block;margin-left:0;margin-top:6px;}
     }
   </style>
 </head>
@@ -518,15 +537,10 @@
   <header id="top">
     <div class="container nav" role="navigation" aria-label="Site navigation">
       <a class="brand" href="#top" aria-label="Quintessential Digital home">
-        <!-- Simple professional logo mark -->
         <span class="logo-wrap" aria-hidden="true">
-          <!-- A minimal “Q” monogram designed to read well at favicon size -->
           <svg class="logo-svg" viewBox="0 0 24 24" role="img" aria-label="Quintessential Digital logo">
-            <!-- Q ring -->
             <path class="q-stroke" d="M12 4.8c4.0 0 7.2 3.2 7.2 7.2S16 19.2 12 19.2 4.8 16 4.8 12 8 4.8 12 4.8z"/>
-            <!-- Q tail -->
             <path class="q-stroke" d="M15.6 15.6l3 3"/>
-            <!-- subtle inner dot (signal/decision point) -->
             <circle class="q-dot" cx="12" cy="12" r="1.1"/>
           </svg>
         </span>
@@ -549,7 +563,6 @@
             <path d="M4 17h16"></path>
           </svg>
         </button>
-
         <a class="btn btn-primary" href="#contact">Book discovery</a>
       </div>
     </div>
@@ -598,7 +611,7 @@
           <span>Responsible AI governance</span>
           <span>Data & platform architecture</span>
           <span>Decision intelligence</span>
-          <span>Risk, controls & audit readiness</span>
+          <span>Product & AI delivery</span>
         </div>
 
         <div class="hero-micro">
@@ -616,7 +629,7 @@
           <strong>risk/controls</strong>, and <strong>product thinking</strong> — then turning it into practical delivery.
         </p>
 
-        <div class="grid-3">
+        <div class="grid-4">
           <div class="card">
             <div class="kicker"><span class="kicon" aria-hidden="true"></span>Strategy</div>
             <h3>AI strategy that turns into delivery</h3>
@@ -660,6 +673,42 @@
               <div class="li"><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>Blueprint + risks & mitigations</div>
             </div>
           </div>
+
+          <!-- Subtle DentistRadar link + product delivery offering -->
+          <div class="card">
+            <div class="kicker"><span class="kicon" aria-hidden="true"></span>Product</div>
+            <h3>AI-enabled product development</h3>
+            <p>
+              We don’t just advise — we design, build, and operate real digital products where
+              reliability, data quality, and user trust matter.
+            </p>
+
+            <div class="list">
+              <div class="li">
+                <span class="check" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                </span>
+                End-to-end product architecture & delivery
+              </div>
+              <div class="li">
+                <span class="check" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                </span>
+                AI, data pipelines & operational guardrails
+              </div>
+              <div class="li">
+                <span class="check" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                </span>
+                Built and operated public-facing platforms
+              </div>
+            </div>
+
+            <p class="product-note">
+              Example: <strong>DentistRadar</strong> — a live platform built and operated to address access to NHS dentistry.
+              <a href="https://www.dentistradar.co.uk" target="_blank" rel="noopener">View product →</a>
+            </p>
+          </div>
         </div>
 
         <div style="text-align:center;margin-top:26px;">
@@ -671,35 +720,35 @@
     <!-- PROOF -->
     <section class="section section-alt" id="proof">
       <div class="container">
-        <h2>Where we’re most useful</h2>
+        <h2>Proof you can take to the board</h2>
         <p class="subtitle">
-          The recurring patterns that show up right before programmes stall, risks escalate, or boards start asking hard questions.
+          We focus on outcomes that are measurable and defensible — and that hold up under scrutiny.
         </p>
 
         <div class="proof-strip" aria-label="Common environments">
-          <span class="proof-chip">Financial services</span>
+          <span class="proof-chip">Regulated environments</span>
           <span class="proof-chip">Audit & assurance</span>
-          <span class="proof-chip">Regulated products</span>
+          <span class="proof-chip">Risk committees</span>
           <span class="proof-chip">Data platforms</span>
           <span class="proof-chip">AI enablement</span>
-          <span class="proof-chip">Risk & controls</span>
+          <span class="proof-chip">Product delivery</span>
         </div>
 
         <div class="grid-3">
           <div class="card">
-            <div class="kicker"><span class="kicon" aria-hidden="true"></span>Decisions</div>
-            <h3>Decision ambiguity</h3>
-            <p>Competing opinions, incomplete info, unclear trade-offs. We produce a defensible decision brief with an auditable trail.</p>
+            <div class="kicker"><span class="kicon" aria-hidden="true"></span>Executive clarity</div>
+            <h3>Defensible decision trails</h3>
+            <p>From ambiguity to a decision that stands up to challenge — with explicit trade-offs and ownership.</p>
           </div>
           <div class="card">
-            <div class="kicker"><span class="kicon" aria-hidden="true"></span>Governance</div>
-            <h3>Controls added too late</h3>
-            <p>Governance bolted on after delivery creates rework. We build day-one guardrails and evidence flows that don’t slow teams.</p>
+            <div class="kicker"><span class="kicon" aria-hidden="true"></span>Assurance-ready</div>
+            <h3>Controls that don’t slow teams</h3>
+            <p>Practical governance, evidence trails and sign-off flows that teams can actually implement.</p>
           </div>
           <div class="card">
-            <div class="kicker"><span class="kicon" aria-hidden="true"></span>AI Risk</div>
-            <h3>AI without accountability</h3>
-            <p>Ownership, explainability, data lineage and sign-off are blurry. We make accountability explicit and operational.</p>
+            <div class="kicker"><span class="kicon" aria-hidden="true"></span>Delivery confidence</div>
+            <h3>Guardrails for complex environments</h3>
+            <p>Architecture clarity and constraints that reduce surprises — improving reliability and speed.</p>
           </div>
         </div>
       </div>
@@ -709,9 +758,7 @@
     <section class="section" id="decision">
       <div class="container">
         <h2>Pick your path in 60 seconds</h2>
-        <p class="subtitle">
-          Answer one question and we’ll suggest the most effective engagement — with concrete outputs.
-        </p>
+        <p class="subtitle">Answer one question and we’ll suggest the most effective engagement — with concrete outputs.</p>
 
         <div class="tree" role="region" aria-label="Engagement decision tree">
           <div class="tree-inner">
@@ -795,9 +842,7 @@
     <section class="section" id="contact">
       <div class="container contact">
         <h2>Next step: 30-minute discovery</h2>
-        <p class="subtitle">
-          If it’s a fit, we’ll propose a tight engagement with clear outcomes, pricing, and timelines.
-        </p>
+        <p class="subtitle">If it’s a fit, we’ll propose a tight engagement with clear outcomes, pricing, and timelines.</p>
 
         <div class="contact-grid">
           <div class="contact-card">
@@ -855,6 +900,7 @@
                   <option value="AI strategy">AI Strategy & Operating Model</option>
                   <option value="Responsible AI">Responsible AI Governance</option>
                   <option value="Trust architecture">Trust Architecture Blueprint</option>
+                  <option value="Product & AI delivery">Product & AI Delivery</option>
                   <option value="Not sure">Not sure yet</option>
                 </select>
               </div>
@@ -869,9 +915,7 @@
                 <button class="btn btn-outline" type="reset">Reset</button>
               </div>
 
-              <div class="note">
-                This form does not submit anywhere by default. The “Generate an email” button will open your email client with a draft.
-              </div>
+              <div class="note">This form does not submit anywhere by default. “Generate an email” opens your email client with a draft.</div>
             </form>
           </div>
         </div>
@@ -957,13 +1001,8 @@
       if (isOpen) closeDrawer(); else openDrawer();
     });
 
-    drawer.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener("click", () => closeDrawer());
-    });
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeDrawer();
-    });
+    drawer.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener("click", () => closeDrawer()));
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeDrawer(); });
 
     // Decision tree logic
     const modeFast = document.getElementById("modeFast");
@@ -1013,6 +1052,15 @@
           "Guardrails: data quality, lineage, access, SLAs",
           "Delivery blueprint + risks & mitigations"
         ]
+      },
+      product: {
+        title: "Product & AI Delivery (2–6 weeks)",
+        desc: "Best when you want to build or modernise a real product — with reliable data, AI features, and operational guardrails.",
+        bullets: [
+          "Product discovery + architecture + delivery plan",
+          "MVP build (or hardening) with data/AI pipeline",
+          "Operational guardrails: monitoring, reliability, quality"
+        ]
       }
     };
 
@@ -1020,7 +1068,8 @@
       { label: "We need a defensible decision (fast)", hint: "Board / regulator / senior risk scrutiny", reco: "decision" },
       { label: "We need an AI strategy that actually lands", hint: "Prioritisation + operating model", reco: "strategy" },
       { label: "We need Responsible AI governance", hint: "Controls + accountability + evidence", reco: "governance" },
-      { label: "Delivery is risky in complex/legacy tech", hint: "Guardrails + architecture clarity", reco: "architecture" }
+      { label: "Delivery is risky in complex/legacy tech", hint: "Guardrails + architecture clarity", reco: "architecture" },
+      { label: "We want to build an AI-enabled product", hint: "MVP / scaling / hardening", reco: "product" }
     ];
 
     const deepQuestions = [
@@ -1030,7 +1079,8 @@
           { label: "Board / regulator questions", hint: "Need defensible artefacts", reco: "decision" },
           { label: "Programme stalled / unclear priorities", hint: "Need direction + plan", reco: "strategy" },
           { label: "AI risk escalating / audit concerns", hint: "Need controls + evidence", reco: "governance" },
-          { label: "Platform/data constraints are blocking", hint: "Need architecture + guardrails", reco: "architecture" }
+          { label: "Platform/data constraints are blocking", hint: "Need architecture + guardrails", reco: "architecture" },
+          { label: "Need to ship a product (or modernise)", hint: "Delivery + reliability", reco: "product" }
         ]
       },
       {
@@ -1039,7 +1089,8 @@
           { label: "Time (weeks, not months)", hint: "High leverage", reco: "decision" },
           { label: "Operating model & ownership", hint: "Accountability + cadence", reco: "strategy" },
           { label: "Controls, explainability, evidence", hint: "Assurance ready", reco: "governance" },
-          { label: "Legacy complexity / reliability", hint: "Resilience + data", reco: "architecture" }
+          { label: "Legacy complexity / reliability", hint: "Resilience + data", reco: "architecture" },
+          { label: "Need delivery capability end-to-end", hint: "Build + operate", reco: "product" }
         ]
       }
     ];
