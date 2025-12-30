@@ -138,6 +138,7 @@
     [data-theme="dark"] .contact-card{background:rgba(15,23,42,0.94);border-color:rgba(255,255,255,0.1);}
     .contact-card::before{content:"";position:absolute;inset:-50%;background:radial-gradient(40% 40% at 30% 30%, rgba(79,70,229,0.12), transparent 60%);opacity:.6;}
     .contact-card > *{position:relative;}
+    /* EMAIL – visible, one line, no cutoff */
     .email-big{display:block;font-size:20px;font-weight:900;color:var(--primary);margin-top:12px;line-height:1.4;white-space:normal;word-break:break-all;}
     .hint{color:var(--muted);margin-top:12px;font-weight:750;}
     .field{display:flex;flex-direction:column;gap:10px;margin-top:20px;}
@@ -404,7 +405,9 @@
           <div class="tree-grid">
             <div class="qbox" id="questionBox">
               <div class="qtitle" id="qTitle">Select one:</div>
-              <div class="opts" id="options"></div>
+              <div class="opts" id="options">
+                <!-- Options will be injected by JavaScript -->
+              </div>
             </div>
             <div class="result" id="result">
               <div class="label"><span class="badge"></span>Recommendation</div>
@@ -486,7 +489,7 @@
             </div>
             <div class="form-actions">
               <button class="btn btn-soft" type="button" id="copyTemplate">Copy template</button>
-              <a class="btn btn-outline" href="#decision">Use decision tree</a>
+              <a class="btn btn-outline" href="#decision">Use the decision tree</a>
             </div>
             <div class="note">By emailing, you’re not signing up to anything. We’ll only use your message to respond.</div>
           </div>
@@ -577,8 +580,121 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.card').forEach(card => observer.observe(card));
 
-    // Decision tree logic (unchanged – full code as before)
-    // Copy & generate email functions (unchanged)
+    // Decision tree - FULLY RESTORED WITH ALL OPTIONS AND RECOMMENDATIONS
+    const modeFast = document.getElementById("modeFast");
+    const modeDeep = document.getElementById("modeDeep");
+    const resetTree = document.getElementById("resetTree");
+    const optionsEl = document.getElementById("options");
+    const rTitle = document.getElementById("rTitle");
+    const rDesc = document.getElementById("rDesc");
+    const rList = document.getElementById("rList");
+    let treeMode = "fast";
+
+    const recos = {
+      decision: {title:"Decision Brief Sprint (≈10 days)",desc:"Best when you need a defensible decision quickly — with explicit trade-offs, owners, and next steps.",bullets:["Executive decision brief + options + trade-offs","Risk/controls map + evidence needs","90-day plan + dependencies + owners"]},
+      strategy: {title:"AI Strategy & Operating Model (2–4 weeks)",desc:"Best when you need direction, prioritisation, and a practical operating model that turns into delivery.",bullets:["Use-case portfolio + prioritisation model","AI operating model: roles, governance, cadence","Platform/data implications + investment roadmap"]},
+      governance: {title:"Responsible AI Governance Kit (2–4 weeks)",desc:"Best when you need AI controls, accountability, and evidence trails that hold up under audit and scrutiny.",bullets:["Use-case gating + risk classification + sign-off flow","Controls library + owners + testing approach","Evidence pack templates + monitoring basics"]},
+      architecture: {title:"Trust Architecture Blueprint (3–5 weeks)",desc:"Best when data, platforms, and legacy constraints make delivery risky — and you need guardrails and clarity.",bullets:["Target architecture + decision log + constraints","Guardrails: data quality, lineage, access, SLAs","Delivery blueprint + risks & mitigations"]},
+      product: {title:"Product & AI Delivery (2–6 weeks)",desc:"Best when you want to build or modernise a real product — with reliable data, AI features, and operational guardrails.",bullets:["Product discovery + architecture + delivery plan","MVP build (or hardening) with data/AI pipeline","Operational guardrails: monitoring, reliability, quality"]}
+    };
+
+    const fastOptions = [
+      {label:"We need a defensible decision (fast)",hint:"Board / regulator / senior risk scrutiny",reco:"decision"},
+      {label:"We need an AI strategy that actually lands",hint:"Prioritisation + operating model",reco:"strategy"},
+      {label:"We need Responsible AI governance",hint:"Controls + accountability + evidence",reco:"governance"},
+      {label:"Delivery is risky in complex/legacy tech",hint:"Guardrails + architecture clarity",reco:"architecture"},
+      {label:"We want to build an AI-enabled product",hint:"MVP / scaling / hardening",reco:"product"}
+    ];
+
+    const deepQuestions = [
+      {title:"What’s driving urgency?",options:[
+        {label:"Board / regulator questions",hint:"Need defensible artefacts",reco:"decision"},
+        {label:"Programme stalled / unclear priorities",hint:"Need direction + plan",reco:"strategy"},
+        {label:"AI risk escalating / audit concerns",hint:"Need controls + evidence",reco:"governance"},
+        {label:"Platform/data constraints are blocking",hint:"Need architecture + guardrails",reco:"architecture"},
+        {label:"Need to ship a product (or modernise)",hint:"Delivery + reliability",reco:"product"}
+      ]},
+      {title:"What’s your biggest constraint?",options:[
+        {label:"Time (weeks, not months)",hint:"High leverage",reco:"decision"},
+        {label:"Operating model & ownership",hint:"Accountability + cadence",reco:"strategy"},
+        {label:"Controls, explainability, evidence",hint:"Assurance ready",reco:"governance"},
+        {label:"Legacy complexity / reliability",hint:"Resilience + data",reco:"architecture"},
+        {label:"Need delivery capability end-to-end",hint:"Build + operate",reco:"product"}
+      ]}
+    ];
+
+    let deepStep = 0;
+
+    function renderReco(key){
+      const r = recos[key];
+      rTitle.textContent = r.title;
+      rDesc.textContent = r.desc;
+      rList.innerHTML = "";
+      r.bullets.forEach(b => {
+        const li = document.createElement("div");
+        li.className = "li";
+        li.innerHTML = `<span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>${b}`;
+        rList.appendChild(li);
+      });
+    }
+
+    function renderFast(){
+      optionsEl.innerHTML = "";
+      document.getElementById("qTitle").textContent = "Select one:";
+      fastOptions.forEach(opt => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "opt";
+        btn.innerHTML = `<span>${opt.label}</span><small>${opt.hint}</small>`;
+        btn.addEventListener("click", () => renderReco(opt.reco));
+        optionsEl.appendChild(btn);
+      });
+    }
+
+    function renderDeep(){
+      optionsEl.innerHTML = "";
+      const q = deepQuestions[deepStep];
+      document.getElementById("qTitle").textContent = q.title;
+      q.options.forEach(opt => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "opt";
+        btn.innerHTML = `<span>${opt.label}</span><small>${opt.hint}</small>`;
+        btn.addEventListener("click", () => {
+          renderReco(opt.reco);
+          deepStep = (deepStep + 1) % deepQuestions.length;
+          setTimeout(renderDeep, 160);
+        });
+        optionsEl.appendChild(btn);
+      });
+    }
+
+    function initTree(){
+      deepStep = 0;
+      renderReco("decision");
+      treeMode === "fast" ? renderFast() : renderDeep();
+    }
+
+    modeFast.addEventListener("click", () => { treeMode = "fast"; modeFast.classList.add("active"); modeDeep.classList.remove("active"); initTree(); });
+    modeDeep.addEventListener("click", () => { treeMode = "deep"; modeDeep.classList.add("active"); modeFast.classList.remove("active"); initTree(); });
+    resetTree.addEventListener("click", initTree);
+    initTree();
+
+    // Copy template & generate email
+    document.getElementById("copyTemplate").addEventListener("click", async () => {
+      const text = document.getElementById("template").value;
+      try { await navigator.clipboard.writeText(text); } catch (e) { document.getElementById("template").select(); document.execCommand("copy"); }
+    });
+    document.getElementById("generateEmail").addEventListener("click", () => {
+      const name = document.getElementById("name").value || "[Name]";
+      const org = document.getElementById("org").value || "[Organisation]";
+      const email = document.getElementById("email").value || "[Email]";
+      const topic = document.getElementById("topic").value || "[Topic]";
+      const msg = document.getElementById("message").value || "[Context]";
+      const subject = encodeURIComponent(`Advisory — ${topic} (${org})`);
+      const body = encodeURIComponent(`Hi Quintessential Digital,\n\nName: ${name}\nOrganisation: ${org}\nEmail: ${email}\nTopic: ${topic}\n\nContext:\n${msg}\n\nKey decision(s) right now:\n-\nConstraints (risk/reg/timeline/budget):\n-\nWhat “good” looks like:\n-\nStakeholders / roles:\n-\n\nThanks,\n${name}`);
+      window.location.href = `mailto:hello@quintessentialdigital.com?subject=${subject}&body=${body}`;
+    });
   </script>
 </body>
 </html>
